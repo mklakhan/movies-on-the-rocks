@@ -1,9 +1,9 @@
 // DOM variables
 
-// var searchBtn = document.getElementById("searchBtn")
+var searchBtn = document.getElementById("searchBtn")
 
 // User defined movie title
-// var userMovie = document.getElementById("movieTitle").value
+var userMovie = document.getElementById("movieTitle").value
 
 // User defined genre
 var userGenre
@@ -16,6 +16,11 @@ var drinkData
 
 // user selected drinkPreference
 var drinkPreference
+
+// var compare = [{
+//     genre: 'horror'
+//     drinkCategory: 'bloody Mary'
+// }]
 
 // var queryURL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
 // var queryURLCocktail = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail'
@@ -35,19 +40,22 @@ var omdbAPIKey = 'Trilogy'
 var omdbQueryURL = 'http://www.omdbapi.com/?apikey=' + omdbAPIKey + '&'
 var queryURL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
 
-fetch(omdbQueryURL)
-    .then(function(articleResponse) {
-        console.log(articleResponse)
-})
+// fetch(omdbQueryURL)
+//     .then(function(articleResponse) {
+//         console.log(articleResponse)
+// })
 
     // SearchBtn Function
-    // function searchBtn() {
-    //     var omdbQueryURL = 'http://www.omdbapi.com/?apikey=' + omdbAPIKey + '&'
-    //     fetch(omdbQueryURL)
-    //     .then(function(articleResponse) {
-    //         console.log(articleResponse)
-    //     })
-    // }
+    function searchBtn() {
+        // console.log(userMovie)
+        var omdbQueryURL = 'http://www.omdbapi.com/?apikey=' + omdbAPIKey + '&t=' + userMovie
+        fetch(omdbQueryURL)
+        .then(function(articleResponse) {
+            console.log(articleResponse)
+            // var userMovieGenre = articleResponse.data.genre
+            // fetch(queryURL)
+        })
+    }
 
 
 //clearBtn Function
