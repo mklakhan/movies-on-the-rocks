@@ -1,3 +1,16 @@
+.jumbotron{
+    text-align: center;
+    background-color: lightgrey;
+}
+
 .container{
-    background-color: grey;
+    
+}
+
+h2{
+    text-align: center;
+}
+
+.submit-Btn{
+    margin-top: 100px;
 }
