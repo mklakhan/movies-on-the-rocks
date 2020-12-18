@@ -5,6 +5,8 @@ var searchBtn = document.getElementById("searchBtn")
 // User defined movie title
 var userMovie = document.getElementById("movieTitle").value
 
+var dropdownToggle = document.getElementById('dropdownMenu')
+
 // User defined genre
 var userGenre
 
@@ -38,7 +40,7 @@ var queryURL = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=552'
 
 var omdbAPIKey = 'Trilogy'
 var omdbQueryURL = 'http://www.omdbapi.com/?apikey=' + omdbAPIKey + '&'
-var queryURL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
+var cocktailQueryURL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
 
 // fetch(omdbQueryURL)
 //     .then(function(articleResponse) {
@@ -50,8 +52,8 @@ var queryURL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
         // console.log(userMovie)
         var omdbQueryURL = 'http://www.omdbapi.com/?apikey=' + omdbAPIKey + '&t=' + userMovie
         fetch(omdbQueryURL)
-        .then(function(articleResponse) {
-            console.log(articleResponse)
+        .then(function(dataResponse) {
+            console.log(dataResponse)
             // var userMovieGenre = articleResponse.data.genre
             // fetch(queryURL)
         })
