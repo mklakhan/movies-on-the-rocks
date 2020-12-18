@@ -1,9 +1,26 @@
 // DOM variables
 
-var searchBtn = document.getElementById("searchBtn")
+$("#searchBtn").click(function(){
+    console.log (userMovie.val())
+    var omdbQueryURL = 'http://www.omdbapi.com/?apikey=' + omdbAPIKey + '&t=' + userMovie.val()
+    
+    $.ajax({
+        url: omdbQueryURL
+      }).then(function(response) {
+        //   console.log(response)
+        var userMovieGenre = response.Genre.split(",");
+
+        console.log(userMovieGenre)
+        for (i=0; i < userMovieGenre.length; i++) {
+            var category = userMovieGenre[i].trim()
+            var queryURLCategory = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=' + category
+            console.log(queryURLCategory)
+        };
+  });
+});
 
 // User defined movie title
-var userMovie = document.getElementById("movieTitle").value
+var userMovie = $('#movieTitle')
 
 var dropdownToggle = document.getElementById('dropdownMenu')
 
@@ -47,22 +64,14 @@ var cocktailQueryURL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
 //         console.log(articleResponse)
 // })
 
-    // SearchBtn Function
-    function searchBtn() {
-        // console.log(userMovie)
-        var omdbQueryURL = 'http://www.omdbapi.com/?apikey=' + omdbAPIKey + '&t=' + userMovie
-        fetch(omdbQueryURL)
-        .then(function(dataResponse) {
-            console.log(dataResponse)
-            // var userMovieGenre = articleResponse.data.genre
-            // fetch(queryURL)
-        })
-    }
-
-//test test test
-
-//clearBtn Function
-// function clearBtn () {
-//   userMovie.value = ''
-//   userGenre = ''
-// }
+    // // SearchBtn Function
+    // function searchBtn() {
+    //     // console.log(userMovie)
+    //     var omdbQueryURL = 'http://www.omdbapi.com/?apikey=' + omdbAPIKey + '&t=' + userMovie
+    //     fetch(omdbQueryURL)
+    //     .then(function(dataResponse) {
+    //         console.log(dataResponse)
+    //         // var userMovieGenre = articleResponse.data.genre
+    //         // fetch(queryURL)
+    //     })
+    // }
