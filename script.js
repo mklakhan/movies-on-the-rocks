@@ -1,6 +1,6 @@
 // DOM variables
 
-$("#searchBtn").click(function(){
+$("#submitBtn").click(function(){
     console.log (userMovie.val())
     var omdbQueryURL = 'http://www.omdbapi.com/?apikey=' + omdbAPIKey + '&t=' + userMovie.val()
     
@@ -35,6 +35,28 @@ var drinkData
 
 // user selected drinkPreference
 var drinkPreference
+
+
+// Modal to check for age
+var isLegal = 'false'
+
+if (isLegal === 'false') {
+  // modal for age check
+  $("#isLegalModal").addClass('reveal')
+  // save information to local storage
+  // if click yes
+  $("#isLegalYes").click(function(){
+  console.log('true' + ' will be saved')
+  localStorage.setItem(isLegal, "true")
+  })
+  // if click no
+  $("#isLegalNo").click(function(){
+  console.log('false' + ' will be saved')
+  localStorage.setItem(isLegal, "false")
+  })
+}
+
+
 
 // var compare = [{
 //     genre: 'horror'
