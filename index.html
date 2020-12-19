@@ -11,62 +11,83 @@
 </head>
 
 <body>
-    <header class="jumbotron">
-        <h1>Movies on the Rocks</h1>
+    <header>
+        <img class="jumbo-img" src="assets/MoviesontheRocks.jpg" alt="header">
     </header>
-    <ul class="menu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Drinks!</a></li>
-        <li><a href="#">About Us</a></li>
-    </ul>
 
     <div class="container">
+
+        <ul class="menu align-center">
+            <li><a href="#"><button class="button large button primary navBtn">Home</button></a></li>
+            <li><a href="#"><button class="button large button primary navBtn">Drinks!</button></a></li>
+            <li><a href="#"><button class="button large button primary navBtn">About Us</button></a></li>
+        </ul>
+
+
         <h2>To get started, please complete the forms below!</h2>
         <form>
             <div class="grid-container">
                 <div class="grid-x grid-padding-x">
                     <div class="medium-6 cell">
-                        <label>Drinks Based on Movie Title
-                            <input type="text" placeholder="Enter movie title here">
+                        <label>
+                            <p class="form-heading">Drinks Based on Movie Title</p>
+                            <input id="movieTitle" type="text" placeholder="Enter movie title here">
                         </label>
                     </div>
 
-                    <label>Drinks Based on Movie Genre
-                        <select>
-                            <option value=""></option>
-                            <option value="action">Action</option>
-                            <option value="adventure">Adventure</option>
-                            <option value="animation">Animation</option>
-                            <option value="biography">Biography</option>
-                            <option value="comedy">Comedy</option>
-                            <option value="crime">Crime</option>
-                            <option value="documentary">Documentary</option>
-                            <option value="drama">Drama</option>
-                            <option value="family">Family</option>
-                            <option value="history">History</option>
-                            <option value="horror">Horror</option>
-                            <option value="musical">Musical</option>
-                            <option value="mystery">Mystery</option>
-                            <option value="romance">Romance</option>
-                            <option value="sci-fi">Sci-Fi</option>
-                            <option value="thriller">Thriller</option>
-                            <option value="western">Western</option>
-                        </select>
-                    </label>
+                    <div class="medium-6 cell">
+                        <label>
+                            <p class="form-heading">Drinks Based on Movie Genre</p>
+                            <select>
+                                <option value=""></option>
+                                <option value="action">Action</option>
+                                <option value="adventure">Adventure</option>
+                                <option value="animation">Animation</option>
+                                <option value="biography">Biography</option>
+                                <option value="comedy">Comedy</option>
+                                <option value="crime">Crime</option>
+                                <option value="documentary">Documentary</option>
+                                <option value="drama">Drama</option>
+                                <option value="family">Family</option>
+                                <option value="history">History</option>
+                                <option value="horror">Horror</option>
+                                <option value="musical">Musical</option>
+                                <option value="mystery">Mystery</option>
+                                <option value="romance">Romance</option>
+                                <option value="sci-fi">Sci-Fi</option>
+                                <option value="thriller">Thriller</option>
+                                <option value="western">Western</option>
+                            </select>
+                        </label>
+                    </div>
                 </div>
-            </div>
         </form>
 
-        <label>Do you have a preference on beverage type?
-            <select>
-                <option value=""></option>
+        <div class="grid-x grid-padding-x preference">
+            <div class="medium-6 cell">
+                <label>
+                    <p class="form-heading">Do you have a preference on beverage type?</p>
+                    <select>
+                        <option value=""></option>
 
-            </select>
-        </label>
-
-        <div class="grid-x submit-Btn">
-            <button type="button" class="success button expanded">Submit</button>
+                    </select>
+                </label>
+            </div>
         </div>
+    </div>
+
+
+    <div class="submit-Btn">
+        <button id="submitBtn" type="button" class="success button button large btnStyle">Submit</button>
+    </div>
+
+    <div class="card">
+
+        <div id="results" class="card-section">
+            <h4>Results</h4>
+            <p>Drink options will show here</p>
+        </div>
+    </div>
     </div>
 
 
