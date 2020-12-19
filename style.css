@@ -1,3 +1,53 @@
+.jumbo-img{
+    width: 100%;
+}
+
+.navBtn{
+    font-size: 25px;
+    border-radius: 25px;
+    padding: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+
 .container{
-    background-color: grey;
+    background-color: rgb(241, 212, 149);
+    
+}
+
+h2{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.form-heading{
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+}
+
+.submit-Btn{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.btnStyle{
+    border-radius: 50px;
+    
+}
+
+.card-divider{
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.preference{
+    justify-content: center;
+    align-items: center;
 }
