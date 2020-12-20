@@ -64,10 +64,10 @@ $("#submitBtn").click(function(){
                 for (k=0; k < finalCategory.length; k++) {
                   $.ajax({
                     url: queryURLCategory + compare[j].drinkCategory
-                  }).then(function(drinkResponse) {
-                      console.log(drinkResponse)
-                      results.prepend('<img src=' + drinkResponse.drinks[0].strDrinkThumb + ' />')
-                      console.log(drinkResponse.drinks[0].strDrinkThumb)
+                  }).then(function(drinkResponseTwo) {
+                      console.log(drinkResponseTwo)
+                      results.prepend('<img src=' + drinkResponseTwo.drinks[0].strDrinkThumb + ' />')
+                      console.log(drinkResponseTwo.drinks[0].strDrinkThumb)
                   })
                 }
                 }
