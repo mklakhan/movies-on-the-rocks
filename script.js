@@ -1,5 +1,39 @@
 // DOM variables
 
+// card div for the drink results
+var results = $('#results')
+
+// User defined movie title
+var userMovie = $('#movieTitle')
+
+// User defined genre
+var userGenre
+
+// genre of userMovie gotten from ajax of omdb
+var userMovieGenre
+
+// drink recipe data gotten from ajax of TheCocktailDB
+var drinkData
+
+// user selected drinkPreference
+var drinkPreference
+
+// Modal to check for age
+var isLegal = 'false'
+
+// URL variables
+var queryURLCategory = 'https://www.thecocktaildb.com/api/json/v1/1/random.php/filter.php?c='
+// var queryURLCategory = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c='
+// var queryURLOrdinary = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink'
+// var queryURL = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=14029'
+var queryURL = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=552'
+// var queryURLID = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=AT&T'
+
+var omdbAPIKey = 'Trilogy'
+var omdbQueryURL = 'http://www.omdbapi.com/?apikey=' + omdbAPIKey + '&'
+var cocktailQueryURL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
+
+// object comparing genre to drink category
 var compare = [{
   genre: 'Action',
   drinkCategory: 'Beer'},
@@ -83,39 +117,13 @@ $("#submitBtn").click(function(){
               // console.log("it's not working")
               // console.log(compare[j].drinkCategory.toString())
               }
-
-            // var queryURLCategory = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=' + category
-            // console.log(queryURLCategory)
         };
       }
     });
 });
 
 
-// card div for the drink results
-var results = $('#results')
-
-// User defined movie title
-var userMovie = $('#movieTitle')
-
-var dropdownToggle = document.getElementById('dropdownMenu')
-
-// User defined genre
-var userGenre
-
-// genre of userMovie gotten from ajax of omdb
-var userMovieGenre
-
-// drink recipe data gotten from ajax of TheCocktailDB
-var drinkData
-
-// user selected drinkPreference
-var drinkPreference
-
-
-// Modal to check for age
-var isLegal = 'false'
-
+// Modal check for age restriction
 // if (isLegal === 'false') {
 //   // modal for age check
 //   $("#isLegalModal").addClass('reveal')
@@ -132,45 +140,7 @@ var isLegal = 'false'
 //   })
 // }
 
-// variable which is associating the movie genre with a drink category
-// var compare = {
-//   action: 'beer' ,
-//   adventure:'Homemade Liqueur' , 
-//   'sci-fi': 'Other\/Unknown' ,
-// }
-
-
-var queryURLCategory = 'https://www.thecocktaildb.com/api/json/v1/1/random.php/filter.php?c='
-// var queryURLCategory = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c='
-// var queryURLOrdinary = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink'
-// var queryURL = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=14029'
-var queryURL = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=552'
-// var queryURLID = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=AT&T'
-
-
 // When user inputs a movie we will do an ajax call to OMDB to pull the genre from that movie
 // do an ajax call which will return a random drink in a category based on the genre of the movie the user selected
 // prepend the drink data to the DOM 
 // prepend the movie synopsis to the DOM
-
-
-var omdbAPIKey = 'Trilogy'
-var omdbQueryURL = 'http://www.omdbapi.com/?apikey=' + omdbAPIKey + '&'
-var cocktailQueryURL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
-
-// fetch(omdbQueryURL)
-//     .then(function(articleResponse) {
-//         console.log(articleResponse)
-// })
-
-    // // SearchBtn Function
-    // function searchBtn() {
-    //     // console.log(userMovie)
-    //     var omdbQueryURL = 'http://www.omdbapi.com/?apikey=' + omdbAPIKey + '&t=' + userMovie
-    //     fetch(omdbQueryURL)
-    //     .then(function(dataResponse) {
-    //         console.log(dataResponse)
-    //         // var userMovieGenre = articleResponse.data.genre
-    //         // fetch(queryURL)
-    //     })
-    // }
