@@ -99,9 +99,10 @@ $("#submitBtn").click(function(){
                     $.ajax({
                       url: queryURLCategory + compare[j].drinkCategory
                     }).then(function(drinkResponseTwo) {
-                        // console.log(drinkResponseTwo)
+                        console.log(drinkResponseTwo)
                         // prepend the drink data to the DOM
                         results.prepend('<img src=' + drinkResponseTwo.drinks[0].strDrinkThumb + ' />')
+                        results.prepend('<h2>' + drinkResponseTwo.drinks[0].strDrink + '</h2>')
                         // console.log(drinkResponseTwo.drinks[0].strDrinkThumb)
                     })
                   }
@@ -110,9 +111,10 @@ $("#submitBtn").click(function(){
                   $.ajax({
                     url: queryURLCategory + compare[j].drinkCategory.split(",")
                   }).then(function(drinkResponse) {
-                      // console.log(drinkResponse)
+                      console.log(drinkResponse)
                       // prepend the drink data to the DOM 
                       results.prepend('<img src=' + drinkResponse.drinks[0].strDrinkThumb + ' />')
+                      results.prepend('<h2>' + drinkResponse.drinks[0].strDrink + '</h2>')
                       // console.log(drinkResponse.drinks[0].strDrinkThumb)
                   })
                 }
