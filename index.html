@@ -5,172 +5,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movies on the Rocks</title>
-    <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
+        integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-content">
-            <!-- Any other Bulma elements you want -->
+    <header>
+        <img class="jumbo-img" src="assets/MoviesontheRocks.jpg" alt="header">
+    </header>
+
+    <div class="container">
+
+        <ul class="menu align-center">
+            <li><a href="#"><button class="button large button primary navBtn">Home</button></a></li>
+            <li><a href="#"><button class="button large button primary navBtn">Drinks!</button></a></li>
+            <li><a href="#"><button class="button large button primary navBtn">About Us</button></a></li>
+        </ul>
+        
+        
+        <div class="submit-Btn">
+            <button id="submitBtn" type="button" class="success button button large btnStyle">Let's Get Started</button>
         </div>
-        <button class="modal-close is-large" aria-label="close"></button>
-    </div>
-
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="https://bulma.io">
-                <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-            </a>
-
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
-                data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item">
-                    Home
-                </a>
-
-                <a class="navbar-item">
-                    Documentation
-                </a>
-
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">
-                        More
-                    </a>
-
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item">
-                            About
-                        </a>
-                        <a class="navbar-item">
-                            Jobs
-                        </a>
-                        <a class="navbar-item">
-                            Contact
-                        </a>
-                        <hr class="navbar-divider">
-                        <a class="navbar-item">
-                            Report an issue
-                        </a>
-                    </div>
+        
+        <h2 class="subheader">Our Pick for Movie & Cocktail of the Month</h2>
+        
+        
+        <div class="grid-x grid-margin-x">
+            <div class="card">
+                <div class="card-section">
+                    <img src="assets/sample-movie.jpg" alt="movie of the month">
                 </div>
-            </div>
-
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-primary">
-                            <strong>Sign up</strong>
-                        </a>
-                        <a class="button is-light">
-                            Log in
-                        </a>
-                    </div>
+                <div class="card-section">
+                    <p>Movie of the Month</p>
                 </div>
-            </div>
+            </div>    
+            <div class="card">
+                <div class="card-section">
+                    <img src="assets/sample-drink.jpg" alt="drink of the month">
+                </div>
+                <div class="card-section">
+                    <p>Drink of the month</p>
+                </div>
+            </div>    
         </div>
-    </nav>
-
-    <section class="section">
-        <div class="container">
-            <h1 class="title">
-                Hello World
-            </h1>
-            <p class="subtitle">
-                My first website with <strong>Bulma</strong>!
-            </p>
-        </div>
-    </section>
-
-    <div class="field">
-        <div class="control">
-            <textarea id="movieTitle" class="textarea is-primary" placeholder="Primary textarea"></textarea>
-        </div>
+        
     </div>
-    
-<button class="button" id="searchBtn">Search</button>
-
-    <div class="dropdown">
-        <div class="dropdown-trigger">
-          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
-            <span>Click me</span>
-            <span class="icon is-small">
-              <i class="fas fa-angle-down" aria-hidden="true"></i>
-            </span>
-          </button>
-        </div>
-        <div class="dropdown-menu" id="dropdown-menu3" role="menu">
-          <div class="dropdown-content">
-            <a href="#" class="dropdown-item">
-              Overview
-            </a>
-            <a href="#" class="dropdown-item">
-              Modifiers
-            </a>
-            <a href="#" class="dropdown-item">
-              Grid
-            </a>
-            <a href="#" class="dropdown-item">
-              Form
-            </a>
-            <a href="#" class="dropdown-item">
-              Elements
-            </a>
-            <a href="#" class="dropdown-item">
-              Components
-            </a>
-            <a href="#" class="dropdown-item">
-              Layout
-            </a>
-            <hr class="dropdown-divider">
-            <a href="#" class="dropdown-item">
-              More
-            </a>
-          </div>
-        </div>
-      </div>
-
-    <div id="dropdownMenu" class="dropdown">
-        <div class="dropdown-trigger">
-            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                <span>Dropdown button</span>
-                <span class="icon is-small">
-                    <i class="fas fa-angle-down" aria-hidden="true"></i>
-                </span>
-            </button>
-        </div>
-        <div class="dropdown-menu" id="dropdown-menu" role="menu">
-            <div class="dropdown-content">
-                <a href="#" class="dropdown-item">
-                    Dropdown item
-                </a>
-                <a class="dropdown-item">
-                    Other dropdown item
-                </a>
-                <a href="#" class="dropdown-item">
-                    Active dropdown item
-                </a>
-                <a href="#" class="dropdown-item">
-                    Other dropdown item
-                </a>
-                <hr class="dropdown-divider">
-                <a href="#" class="dropdown-item">
-                    With a divider
-                </a>
-            </div>
-        </div>
-    </div>
-
-    
+        
+        
+        
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
+        integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
 
