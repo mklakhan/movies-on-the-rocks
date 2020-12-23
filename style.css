@@ -1,3 +1,215 @@
-.container{
-    background-color: grey;
+.jumbo-img{
+    width: 100%;
 }
+
+.navBtn{
+    font-size: 25px;
+    border-radius: 25px;
+    padding: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+
+.container{
+    background-color: rgb(241, 212, 149);
+    
+}
+
+h2{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.form-heading{
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+}
+
+.submit-Btn{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.btnStyle{
+    border-radius: 50px;
+    
+}
+
+.card-divider{
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.preference{
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Home page */
+.hero-section {
+    background: url(imgs/MoviesontheRocks.jpg) 50% no-repeat;
+    background-size: cover;
+    height: 75vh;
+    text-align: center;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  
+  .hero-section .hero-section-text {
+    color: #fefefe;
+    text-shadow: 1px 1px 2px #0a0a0a;
+  }
+  
+  .intro {
+    padding: 10px 0;
+    padding-left: 10px 0;
+    padding-right: 10px 0;
+    border-top: 1px solid medium-gray;
+    border-bottom: 1px solid medium-gray;
+
+  }
+
+  /* About Us page */
+
+  .about-us {
+    background: url(imgs/AboutUs.jpg) 50% no-repeat;
+    background-size: cover;
+    height: 75vh;
+    text-align: center;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  
+  .about-us .about-us-text {
+    color: #fefefe;
+    text-shadow: 1px 1px 2px #0a0a0a;
+
+  }
+
+.article-row-section {
+    max-width: 75rem;
+    margin-right: auto;
+    margin-left: auto;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  
+  .article-row-section-inner {
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+    max-width: 100%;
+    padding-right: 0.625rem;
+    padding-left: 0.625rem;
+    max-width: 100%;
+  }
+  
+  @media print, screen and (min-width: 40em) {
+    .article-row-section-inner {
+      padding-right: 0.9375rem;
+      padding-left: 0.9375rem;
+    }
+  }
+  
+  @media print, screen and (min-width: 40em) {
+    .article-row-section-inner {
+      -webkit-flex: 0 0 83.33333%;
+          -ms-flex: 0 0 83.33333%;
+              flex: 0 0 83.33333%;
+      max-width: 83.33333%;
+      padding-right: 0.625rem;
+      padding-left: 0.625rem;
+      max-width: 83.33333%;
+    }
+  }
+  
+  @media print, screen and (min-width: 40em) and (min-width: 40em) {
+    .article-row-section-inner {
+      padding-right: 0.9375rem;
+      padding-left: 0.9375rem;
+    }
+  }
+  
+  .article-row-section-header {
+    padding: 1.5rem 0;
+    margin: 0;
+    line-height: 1;
+  }
+  
+  .article-row {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    border-top: 1px solid #e6e6e6;
+    padding: 1.5rem 0;
+  }
+  
+  @media print, screen and (min-width: 40em) {
+    .article-row {
+      -webkit-flex-direction: row;
+          -ms-flex-direction: row;
+              flex-direction: row;
+    }
+  }
+  
+  .article-row-img img {
+    width: 100%;
+  }
+  
+  @media print, screen and (min-width: 40em) {
+    .article-row-img img {
+      max-width: none;
+      width: auto;
+    }
+  }
+  
+  .article-row-content {
+    padding: 1.5rem 0 0;
+    color: #0a0a0a;
+  }
+  
+  @media print, screen and (min-width: 40em) {
+    .article-row-content {
+      padding: 0 0 0 1.5rem;
+    }
+  }
+  
+  .article-row-content-header {
+    font-size: 1.5rem;
+  }
+  
+  .article-row-content-description {
+    font-size: 1.25rem;
+  }
