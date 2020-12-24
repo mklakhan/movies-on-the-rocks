@@ -52,8 +52,16 @@ h2{
     align-items: center;
 } */
 
+/* Nav Bar  */
+.top-bar-left {
+  font-family: Montserrat;
+}
 
-/* Home page */
+.top-bar-right {
+  font-family: Montserrat;
+}
+
+/* Home page: Hero & Intro */
 .hero-section {
     background: url(imgs/MoviesontheRocks.jpg) 50% no-repeat;
     background-size: cover;
@@ -85,7 +93,7 @@ h2{
   }
 
 
-  /* Movie and Cocktail of the Month Section */
+  /* Home page: Movie and Cocktail of the Month Section */
 
 
   .drink-info  {
@@ -115,13 +123,23 @@ h2{
   .ingred {
     border-style: solid;
     border-width: 1px;
-    border-color:black;
+    border-color:white;
     border-radius: 5px;
     /* padding: 1rem; */
   }
+  body {
+    font: normal 20px Montserrat;
+    background-color: #f6f4ed;
+    
+}
+
+section {
+  padding-bottom: 10px;
+  background-color: #2f2f2f;
+  color: white
   
-
-
+ 
+}
 
   /* About Us page */
 
@@ -253,4 +271,9 @@ h2{
     font-size: 1.25rem;
   }
 
-
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: lightgray;
+  color: white;
+  }
