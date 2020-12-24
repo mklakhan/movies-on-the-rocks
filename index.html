@@ -4,7 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movies on the Rocks | Welcome</title>
-    <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+    <!-- <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css">
     <link href="style.css" rel="stylesheet">
   </head>
   <body>
@@ -36,12 +37,13 @@
 
 
     <!-- Movies on the Rocks Intro Text -->
-
-    <div class="grid-x" style="padding-top: 2rem">
-       <div class="cell small-8  center">
+  <div class="grid-container fluid">
+    <div class="grid-x">
+      <div class="cell small-8" style="margin-top: 2.5rem; margin-left: auto; margin-right: auto">
     <p>Who doesn't enjoy a good ole night of Netflix, and chilled drinks? We know we sure do! If you’re looking for a fun beverage that pairs with your flick of the night (or day) then you're at the right place! Pick a movie or genre of interest, and we'll suggest some special concoctions with ingredients and instructions so you can stir, or shake,  yourself a libation or two. Click below to get started!</p>
-        </div>
+      </div>
     </div>
+  </div>
     
     <!-- Let's Get Started Modal -->
     <div class="grid-x">
@@ -61,29 +63,6 @@
     </div>
     
     <!--Movie & Cocktail of the month Section-->
-    <!-- 
-
-  <div class="grid-container">
-    <div class="grid-x">
-      <div class="cell small-12 text-center">
-        <h4 class="primary">White Russian</h4>
-      </div>
-      <div class="cell small-6 medium-6">
-        <img src="imgs/WhiteRussian.jpg" alt="White Russian" width="400" height="400">
-      </div>
-      <div class="cell small-6 medium-6"></div>
-        <h5>Ingredients</h5>
-      <ul>
-        <li>2 oz Vodka</li>
-        <li>1 oz Coffee liqueur</li>
-        <li>Light cream</li>
-      </ul>
-        <h5>Instructions</h5>
-          <p>Pour vodka and coffee liqueur over ice cubes in an old-fashioned glass. Fill with light cream and serve.</p>
-    </div>
-  </div> -->
-
-  
   <div class="grid-x">
     <div class="cell small-12 text-center" style="margin-top: 3rem">
       <h2>Our Pick for Movie and Cocktail of the Month</h2>
@@ -95,35 +74,43 @@
       <p>The White Russian saw a surge in popularity after the 1998 release of <i>The Big Lebowski</i>. Throughout the movie, it appears as the beverage of choice for the protagonist, Jeffrey "The Dude" Lebowski. Below find some of our favorite variations!</p>
     </div>
   </div>
+   <div class="grid-container">
+        <div class="grid-x grid-margin-x grid-margin-y grid-padding-y grid-padding-x">
+            <div id="drink-title" class="cell small-12 text-center">
+                <!-- <h4 class="">White Russian</h4> -->
+            </div>
+            <div id="drink-image" class="cell small-6 ">
+                <!-- <img src="imgs/WhiteRussian.jpg" alt="White Russian" width="400" height="400"> -->
+            </div>
+            <div class="cell small-6 ingred">
+                <h5>Ingredients:</h5>
+                <ul id="drink-ingredients">
+                    <!-- <li>2 oz Vodka</li>
+                    <li>1 oz Coffee liqueur</li>
+                    <li>Light cream</li> -->
+                </ul>
+                <h5>Instructions:</h5>
+                <span id="drink-instructions">
+                    <!-- <p>Pour vodka and coffee liqueur over ice cubes in an old-fashioned glass. Fill with light cream and serve.
+                    </p> -->
+                </span>
+            </div>   
+        </div>
+    </div>
 
-<div class="drink-info row">
-  <div class="columns medium-7">
-    <h5 class="drink-name">White Russian</h5>
-    <img class="drink-image" src="imgs/WhiteRussian.jpg" width="400" height="400"/>
-  </div>
-  <div class="columns medium-5">
-    <h5 class="ingredients-header">Ingredients</h5>
-    <ul>
-      <li>2 oz Vodka</li>
-      <li>1 oz Coffee liqueur</li>
-      <li>Light cream</li>
-    </ul>
-    <h5 class="instructions-header">Instructions</h5>
-    <p>Pour vodka and coffee liqueur over ice cubes in an old-fashioned glass. Fill with light cream and serve.</p>
-  </div>
-</div>
 
 
-  
-  
+
 
     
 
     <!--Script-->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+    <!-- <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"></script>
     <script>
       $(document).foundation();
     </script>
+    <script src="index.js"></script>
   </body>
 </html>
