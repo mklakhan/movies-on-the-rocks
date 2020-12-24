@@ -1,4 +1,4 @@
-.jumbo-img{
+/* .jumbo-img{
     width: 100%;
 }
 
@@ -50,7 +50,7 @@ h2{
 .preference{
     justify-content: center;
     align-items: center;
-}
+} */
 
 
 /* Home page */
@@ -83,6 +83,26 @@ h2{
     border-bottom: 1px solid medium-gray;
 
   }
+
+
+  /* Movie and Cocktail of the Month Section */
+
+
+  .drink-info  {
+    padding: 10px 0;
+    border-top: 1px solid #cacaca;
+    border-bottom: 1px solid #cacaca;
+  }
+  
+  .drink-image {
+    display: block;
+    margin: auto;
+    padding: 10px 0;
+  }
+  
+  
+
+
 
   /* About Us page */
 
@@ -212,4 +232,8 @@ h2{
   
   .article-row-content-description {
     font-size: 1.25rem;
+  }
+
+  .center {
+    margin: auto
   }
