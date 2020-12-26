@@ -6,6 +6,7 @@
     <title>Movies on the Rocks | Welcome</title>
     <!-- <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/motion-ui@1.2.3/dist/motion-ui.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link href="style.css" rel="stylesheet">
   </head>
@@ -52,14 +53,14 @@
        <p><a data-open="ageModal">Let's get started!</a></p>
       </div>
        
-      <div class="reveal" id="ageModal" data-reveal>
-        <p>Are you of legal drinking age?</p>
-        <button id="isLegalYes">Yes</button>
-        <button id="isLegalNo">No</button>
-
-        <button class="close-button" data-close aria-label="Close reveal" type="button">
-          <span aria-hidden="true">&times;</span>
-        </button>
+      <div class="reveal medium" id="ageModal" data-reveal data-close-on-click="false" data-close-on-esc="false" data-v-offset="250px" data-animation-in="fade-in" data-animation-out="fade-out">
+        <div id="modalText">
+          <p>Are you of legal drinking age?</p>
+        </div>
+        <div id="modalButtons">
+          <button id="isLegalYes" data-close class="success button">Yes</button>
+          <button id="isLegalNo"class="alert button">No</button>
+        </div>
       </div>
     </div>
     
