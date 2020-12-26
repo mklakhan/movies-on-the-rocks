@@ -83,30 +83,25 @@ h2{
     text-shadow: 1px 1px 2px #0a0a0a;
   }
   
-#ageModal {
+#ageModal, #isLegalYes, #isLegalNo {
   border-radius: 10px;
 }
 
-#modalText {
+#modalText, #modalButtons {
   display: flex;
+}
+
+#modalText {
   justify-content: center;
 }
 
 #modalButtons {
-  display: flex;
   justify-content: space-evenly;
 }
 
-#isLegalYes {
+#isLegalYes, #isLegalNo {
   width: 30%;
   height: 50px;
-  border-radius: 10px;
-}
-
-#isLegalNo {
-  width: 30%;
-  height: 50px;
-  border-radius: 10px;
 }
 
   .intro {
