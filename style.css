@@ -83,6 +83,32 @@ h2{
     text-shadow: 1px 1px 2px #0a0a0a;
   }
   
+#ageModal {
+  border-radius: 10px;
+}
+
+#modalText {
+  display: flex;
+  justify-content: center;
+}
+
+#modalButtons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#isLegalYes {
+  width: 30%;
+  height: 50px;
+  border-radius: 10px;
+}
+
+#isLegalNo {
+  width: 30%;
+  height: 50px;
+  border-radius: 10px;
+}
+
   .intro {
     padding: 10px 0;
     padding-left: 10px 0;

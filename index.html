@@ -53,17 +53,14 @@
        <p><a data-open="ageModal">Let's get started!</a></p>
       </div>
        
-      <div class="reveal large" id="ageModal" data-reveal data-close-on-click="false" data-close-on-esc="false" data-animation-in="fade-in" data-animation-out="fade-out">
+      <div class="reveal medium" id="ageModal" data-reveal data-close-on-click="false" data-close-on-esc="false" data-v-offset="250px" data-animation-in="fade-in" data-animation-out="fade-out">
         <div id="modalText">
           <p>Are you of legal drinking age?</p>
         </div>
         <div id="modalButtons">
-          <button id="isLegalYes" class="success button">Yes</button>
+          <button id="isLegalYes" data-close class="success button">Yes</button>
           <button id="isLegalNo"class="alert button">No</button>
         </div>
-        <button class="close-button" data-close aria-label="Close reveal" type="button">
-          <span aria-hidden="true">&times;</span>
-        </button>
       </div>
     </div>
     
