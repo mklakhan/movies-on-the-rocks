@@ -63,7 +63,7 @@ h2{
 
 /* Home page: Hero & Intro */
 .hero-section {
-    background: url(imgs/MoviesontheRocks.jpg) 50% no-repeat;
+    background: url(assets/MoviesontheRocks.jpg) 50% no-repeat;
     background-size: cover;
     height: 75vh;
     text-align: center;
@@ -150,13 +150,13 @@ h2{
   }
   body {
     font: normal 20px Montserrat;
-    background-color: #f6f4ed;
+    background-color: #D3D0CB;
     
 }
 
 section {
   padding-bottom: 20px;
-  background-color: #2f2f2f;
+  background-color: #353c44;
   color: white
   
  
@@ -171,7 +171,7 @@ h2 {
   /* About Us page */
 
   .about-us {
-    background: url(imgs/AboutUs.jpg) 50% no-repeat;
+    background: url(assets/AboutUs.jpg) 50% no-repeat;
     background-size: cover;
     height: 75vh;
     text-align: center;
@@ -307,6 +307,6 @@ h2 {
 footer {
   text-align: center;
   padding: 3px;
-  background-color: lightgray;
+  background-color: #987033;
   color: white;
   }
