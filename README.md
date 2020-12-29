@@ -2,8 +2,6 @@
 
 ## Description 
 ```
-The purpose of this project is to .......
-
 The webpage is hosted on [GitHub](https://www.xxxxxxx.com).
 
 You can find the repo on [GitHub](https://github.com/mklakhan/movies-on-the-rocks).

@@ -4,12 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movies on the Rocks | Welcome</title>
-    <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/motion-ui@1.2.3/dist/motion-ui.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link href="style.css" rel="stylesheet">
   </head>
   <body>
 
-    <!-- Start Top Bar -->
+    <!-- Start Nav Bar -->
     <div class="top-bar">
       <div class="top-bar-left">
         <ul class="menu">
@@ -24,41 +26,94 @@
         </ul>
       </div>
     </div>
-    <!-- End Top Bar -->
+    <!-- End Nav Bar -->
 
     <!-- Hero Section -->
     <div class="hero-section">
       <div class="hero-section-text">
-        <h1>Welcome!</h1>
+        <!-- <h1>Welcome!</h1> -->
       </div>
     </div>
 
 
 
-    <!-- Movies on the Rocks Intro -->
-    <h2 class="intro"></h2>
-    <p>Who doesn't enjoy a good ole night of Netflix, and chilled drinks? We know we sure do! If you’re looking for a fun beverage that pairs with your flick of the night (or day) then you're at the right place! Pick a movie or genre of interest, and we'll suggest some special concoctions with ingredients and instructions so you can stir, or shake,  yourself a libation or two, or three, for your amped up movie experience. Click below to get started!</p>
-
-    <p><a data-open="ageModal">Let's get started!</a></p>
-    <div class="reveal" id="ageModal" data-reveal>
-      <p>Are you of legal drinking age?</p>
-      <button id="isLegalYes">Yes</button>
-      <button id="isLegalNo">No</button>
-
-      <button class="close-button" data-close aria-label="Close reveal" type="button">
-        <span aria-hidden="true">&times;</span>
-      </button>
+    <!-- Movies on the Rocks Intro Text -->
+  <div class="grid-container fluid">
+    <div class="grid-x">
+      <div class="cell small-8" style="margin-top: 2.5rem; margin-left: auto; margin-right: auto">
+    <p>Who doesn't enjoy a good ole night of Netflix, and chilled drinks? We'll suggest some special concoctions that pair well with your flick of the night so you can stir or shake yourself a tasty libation, or few. Click below to get started!</p>
+      </div>
+    </div>
+  </div>
+    
+    <!-- Let's Get Started Modal -->
+    <div class="grid-x">
+      <div class="cell small-12 text-center">
+       <p><a data-open="ageModal">Let's get started!</a></p>
+      </div>
+       
+      <div class="reveal medium" id="ageModal" data-reveal data-close-on-click="false" data-close-on-esc="false" data-v-offset="250px" data-animation-in="fade-in" data-animation-out="fade-out">
+        <div id="modalText">
+          <p>Are you of legal drinking age?</p>
+        </div>
+        <div id="modalButtons">
+          <button id="isLegalYes" data-close class="success button">Yes</button>
+          <button id="isLegalNo"class="alert button">No</button>
+        </div>
+      </div>
     </div>
     
-    
+    <!--Movie & Cocktail of the month Section-->
+<section id="OurPicks">
+  <div class="grid-x">
+    <div class="cell small-12 text-center" style="margin-top: 3rem">
+      <h2>Movie and Cocktail of the Month: White Russian and The Big Lebowski </h2>
+    </div>
+    <!-- <div class="cell small-12 text-center" style="margin-top: 3rem"> -->
+      <!-- <h3>White Russians and The Big Lebowski</h3>
+    </div> -->
+    <div class="cell small-8" style="margin-top: 2.5rem; margin-left: auto; margin-right: auto">
+      <p>The White Russian saw a surge in popularity after the 1998 release of <i>The Big Lebowski</i>. Throughout the movie, it is the beverage of choice for the main character, Jeffrey "The Dude" Lebowski!</p>
+    </div>
+  </div>
+   <div class="grid-container">
+        <div class="grid-x grid-margin-x grid-margin-y grid-padding-y grid-padding-x">
+            <div id="drink-title" class="cell small-12 text-center">
+                <!-- <h4 class="">White Russian</h4> -->
+            </div>
+            <div id="drink-image" class="cell small-6 ">
+                <!-- <img src="imgs/WhiteRussian.jpg" alt="White Russian" width="400" height="400"> -->
+            </div>
+            <div class="cell small-6 ingred">
+                <h5>Ingredients:</h5>
+                <ul id="drink-ingredients">
+                    <!-- <li>2 oz Vodka</li>
+                    <li>1 oz Coffee liqueur</li>
+                    <li>Light cream</li> -->
+                </ul>
+                <h5>Instructions:</h5>
+                <span id="drink-instructions">
+                    <!-- <p>Pour vodka and coffee liqueur over ice cubes in an old-fashioned glass. Fill with light cream and serve.
+                    </p> -->
+                </span>
+            </div>   
+        </div>
+    </div>
+</section>
+
+<footer>
+  <p>Copyright 2020</p>
+  <p>Please Drink Responsibly</p>
+</footer>
     
 
-    <footer>Please drink responsibly!</footer>
-
+    <!--Script-->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+    <!-- <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"></script>
     <script>
       $(document).foundation();
     </script>
-  </body>
+    <script src="index.js"></script>
+</body>
 </html>
