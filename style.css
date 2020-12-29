@@ -27,30 +27,23 @@ h2{
     text-align: center;
 }
 
-.submit-Btn{
-    margin-top: 50px;
-    margin-bottom: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-}
 
 .btnStyle{
-    border-radius: 50px;
-    
+  border-radius: 50px;
+  
 }
 
 .card-divider{
-    justify-content: center;
-    align-items: center;
-    
+  justify-content: center;
+  align-items: center;
+  
 }
 
 .preference{
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
 } */
+
 
 /* Nav Bar  */
 .top-bar-left {
@@ -148,13 +141,14 @@ h2{
     border-radius: 5px;
     /* padding: 1rem; */
   }
+  
   body {
     font: normal 20px Montserrat;
     background-color: #D3D0CB;
     
 }
 
-section {
+  section {
   padding-bottom: 20px;
   background-color: #353c44;
   color: white
@@ -162,9 +156,20 @@ section {
  
 }
 
-h2 {
+  h2 {
   font-family: Montserrat;
   font-size: 35px;
+  
+}
+
+  /* Drink Picks page */
+
+  .submit-Btn{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   
 }
 
