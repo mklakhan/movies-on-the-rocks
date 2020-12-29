@@ -1,11 +1,5 @@
 // DOM variables
 
-// Dropdown menu for the ingredient selector
-// var dropdownMenuIngredient = $("#dropdownMenuIngredient :selected")
-
-// dropdown menu for the Genre selector
-// var dropdownMenuGenre = $("#dropdownMenuGenre")
-
 // card div for the drink results
 var results = $('#results')
 
@@ -82,7 +76,9 @@ var compare = [{
 $("#submitBtn").click(function(){
     console.log (userMovie.val())
     var omdbQueryURL = 'http://www.omdbapi.com/?apikey=' + omdbAPIKey + '&t=' + userMovie.val()
+    // Dropdown menu for the ingredient selector
     var dropdownMenuIngredient = $("#dropdownMenuIngredient :selected")
+    // dropdown menu for the Genre selector
     var dropdownMenuGenre = $("#dropdownMenuGenre :selected")
     console.log(dropdownMenuIngredient.val())
     console.log(dropdownMenuGenre.val())
