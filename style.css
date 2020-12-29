@@ -1,4 +1,4 @@
-.jumbo-img{
+/* .jumbo-img{
     width: 100%;
 }
 
@@ -50,12 +50,20 @@ h2{
 .preference{
     justify-content: center;
     align-items: center;
+} */
+
+/* Nav Bar  */
+.top-bar-left {
+  font-family: Montserrat;
 }
 
+.top-bar-right {
+  font-family: Montserrat;
+}
 
-/* Home page */
+/* Home page: Hero & Intro */
 .hero-section {
-    background: url(imgs/MoviesontheRocks.jpg) 50% no-repeat;
+    background: url(assets/MoviesontheRocks.jpg) 50% no-repeat;
     background-size: cover;
     height: 75vh;
     text-align: center;
@@ -75,6 +83,27 @@ h2{
     text-shadow: 1px 1px 2px #0a0a0a;
   }
   
+#ageModal, #isLegalYes, #isLegalNo {
+  border-radius: 10px;
+}
+
+#modalText, #modalButtons {
+  display: flex;
+}
+
+#modalText {
+  justify-content: center;
+}
+
+#modalButtons {
+  justify-content: space-evenly;
+}
+
+#isLegalYes, #isLegalNo {
+  width: 30%;
+  height: 50px;
+}
+
   .intro {
     padding: 10px 0;
     padding-left: 10px 0;
@@ -84,10 +113,65 @@ h2{
 
   }
 
+
+  /* Home page: Movie and Cocktail of the Month Section */
+
+
+  .drink-info  {
+    padding: 10px 0;
+    border-top: 1px solid #cacaca;
+    border-bottom: 1px solid #cacaca;
+  }
+  
+  .drink-image {
+    display: block;
+    margin: auto;
+    padding: 10px 0;
+  }
+  
+  /* .center {
+    margin: auto
+  } */
+
+  div img {
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(59, 38, 23);
+    border-radius: 5px;
+    box-shadow: 5px 3px 5px rgba(0, 0, 0, 0.5);
+  }
+
+  .ingred {
+    border-style: solid;
+    border-width: 1px;
+    border-color:white;
+    border-radius: 5px;
+    /* padding: 1rem; */
+  }
+  body {
+    font: normal 20px Montserrat;
+    background-color: #D3D0CB;
+    
+}
+
+section {
+  padding-bottom: 20px;
+  background-color: #353c44;
+  color: white
+  
+ 
+}
+
+h2 {
+  font-family: Montserrat;
+  font-size: 35px;
+  
+}
+
   /* About Us page */
 
   .about-us {
-    background: url(imgs/AboutUs.jpg) 50% no-repeat;
+    background: url(assets/AboutUs.jpg) 50% no-repeat;
     background-size: cover;
     height: 75vh;
     text-align: center;
@@ -106,6 +190,10 @@ h2{
     color: #fefefe;
     text-shadow: 1px 1px 2px #0a0a0a;
 
+  }
+
+  .article-row-section-header {
+    text-align: center;
   }
 
 .article-row-section {
@@ -185,7 +273,9 @@ h2{
   }
   
   .article-row-img img {
-    width: 100%;
+    /* width: 100%; */
+    height: 200;
+    width: 200;
   }
   
   @media print, screen and (min-width: 40em) {
@@ -212,4 +302,11 @@ h2{
   
   .article-row-content-description {
     font-size: 1.25rem;
+  }
+
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: #987033;
+  color: white;
   }
