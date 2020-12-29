@@ -1,4 +1,6 @@
+// $("#ageModal").foundation('data-open', 'open');
 
+var isLegal = 'false'
 
 // use the drink array to return drink info (drink name, ingredients, measurements, & instructions)
     function drinkInfo(url) {
@@ -41,6 +43,22 @@
         }  
       })
     }
+
+    // modal for age check
+  // $("#isLegalModal").addClass('reveal')
+  // save information to local storage
+  // if click yes
+  $("#isLegalYes").click(function(){
+  console.log('true' + ' will be saved')
+  localStorage.setItem(isLegal, "true")
+  document.location.href = 'preferences.html';
+  })
+  // if click no
+  $("#isLegalNo").click(function(){
+  console.log('false' + ' will be saved')
+  localStorage.setItem(isLegal, "false")
+  document.location.href = 'https://www.youtube.com/watch?v=aucAFuZJuC4';
+  })
 
     drinkInfo('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=12528')
 

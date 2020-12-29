@@ -138,21 +138,21 @@ $("#submitBtn").click(function(){
 
 // Modal check for age restriction
 
-// if (isLegal === 'false') {
-//   // modal for age check
-//   $("#isLegalModal").addClass('reveal')
-//   // save information to local storage
-//   // if click yes
-//   $("#isLegalYes").click(function(){
-//   console.log('true' + ' will be saved')
-//   localStorage.setItem(isLegal, "true")
-//   })
-//   // if click no
-//   $("#isLegalNo").click(function(){
-//   console.log('false' + ' will be saved')
-//   localStorage.setItem(isLegal, "false")
-//   })
-// }
+
+  // modal for age check
+  $("#isLegalModal").addClass('reveal')
+  // save information to local storage
+  // if click yes
+  $("#isLegalYes").click(function(){
+  console.log('true' + ' will be saved')
+  localStorage.setItem(isLegal, "true")
+  })
+  // if click no
+  $("#isLegalNo").click(function(){
+  console.log('false' + ' will be saved')
+  localStorage.setItem(isLegal, "false")
+  })
+
 
 // When user inputs a movie we will do an ajax call to OMDB to pull the genre from that movie
 // do an ajax call which will return a random drink in a category based on the genre of the movie the user selected
