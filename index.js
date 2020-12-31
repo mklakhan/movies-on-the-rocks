@@ -1,13 +1,22 @@
-// $("#ageModal").foundation('data-open', 'open');
+$(document).ready(function () {
+  const ageVerification = (+localStorage.getItem("isLegal"));
+  
+  setTimeout(function () {
+    console.log("Before Modal Load")
+    console.log("Checking ageVerification", ageVerification)
+    if (!ageVerification || ageVerification < 21) {
+      console.log("Opening Modal");
+      $("#openAgeModal").click();
+    }
+  }, 100)
 
-var isLegal = 'false'
 
-// use the drink array to return drink info (drink name, ingredients, measurements, & instructions)
-    function drinkInfo(url) {
-      $.ajax({
-        url: url
-      })
-      .then ((response) => { 
+  // use the drink array to return drink info (drink name, ingredients, measurements, & instructions)
+  function drinkInfo(url) {
+    $.ajax({
+      url: url
+    })
+      .then((response) => {
         console.log(response.drinks[0]);
 
         $('#drink-title').append(`<h4 class="">${response.drinks[0].strDrink}</h4>`);
@@ -19,48 +28,47 @@ var isLegal = 'false'
         var hasStrIng = true;
         var strIdx = 1
         while (hasStrIng) {
-            var strIngredient = 'strIngredient' + strIdx;
-            var strIngredientVal = response.drinks[0][strIngredient];
+          var strIngredient = 'strIngredient' + strIdx;
+          var strIngredientVal = response.drinks[0][strIngredient];
 
-            var strMeasure = 'strMeasure' + strIdx;
-            var strMeasureVal = response.drinks[0][strMeasure];
-            if (strIngredientVal == null) {
-                hasStrIng = false;
-                return hasStrIng;
+          var strMeasure = 'strMeasure' + strIdx;
+          var strMeasureVal = response.drinks[0][strMeasure];
+          if (strIngredientVal == null) {
+            hasStrIng = false;
+            return hasStrIng;
+          } else {
+            if (strMeasureVal !== null) {
+              console.log(strIngredientVal);
+              console.log(strMeasureVal);
+              $('#drink-ingredients').append(`<li>${strMeasureVal} ${strIngredientVal}</li>`)
+              ++strIdx;
             } else {
-              if (strMeasureVal !== null) {
-                console.log(strIngredientVal);
-                console.log(strMeasureVal);
-                $('#drink-ingredients').append(`<li>${strMeasureVal} ${strIngredientVal}</li>`)
-                ++strIdx;
-              } else {
-                console.log(strIngredientVal);
-                $('#drink-ingredients').append(`<li>${strIngredientVal}</li>`)
-                ++strIdx;
-              }
-            
-         } 
-        }  
-      })
-    }
+              console.log(strIngredientVal);
+              $('#drink-ingredients').append(`<li>${strIngredientVal}</li>`)
+              ++strIdx;
+            }
 
-    // modal for age check
+          }
+        }
+      })
+  }
+
+  // modal for age check
   // $("#isLegalModal").addClass('reveal')
   // save information to local storage
   // if click yes
-  $("#isLegalYes").click(function(){
-  console.log('true' + ' will be saved')
-  localStorage.setItem(isLegal, "true")
-  document.location.href = 'preferences.html';
-  })
+  $("#isLegalYes").click(function () {
+    console.log('true will be saved')
+    localStorage.setItem("isLegal", "21")
+    // document.location.href = 'preferences.html';
+  });
   // if click no
-  $("#isLegalNo").click(function(){
-  console.log('false' + ' will be saved')
-  localStorage.setItem(isLegal, "false")
-  document.location.href = 'https://www.youtube.com/watch?v=aucAFuZJuC4';
+  $("#isLegalNo").click(function () {
+    console.log('false will be saved')
+    localStorage.setItem("isLegal", "1")
+    document.location.href = 'https://www.youtube.com/watch?v=aucAFuZJuC4';
   })
 
-    drinkInfo('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=12528')
+  drinkInfo('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=12528')
 
-
-    
+})
