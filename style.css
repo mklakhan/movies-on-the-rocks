@@ -29,7 +29,7 @@
     text-shadow: 1px 1px 2px #0a0a0a;
   }
   
-#ageModal, #isLegalYes, #isLegalNo {
+#ageModal, #innerModal, #isLegalYes, #isLegalNo {
   border-radius: 10px;
 }
 
@@ -37,8 +37,19 @@
   display: flex;
 }
 
+#ageModal {
+  background-image: url(assets/MoviesontheRocks.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#innerModal {
+  background-color: #353c44;
+}
+
 #modalText {
   justify-content: center;
+  color: white;
 }
 
 #modalButtons {
@@ -48,6 +59,7 @@
 #isLegalYes, #isLegalNo {
   width: 30%;
   height: 50px;
+
 }
 
   .intro {

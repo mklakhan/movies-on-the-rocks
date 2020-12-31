@@ -57,17 +57,27 @@ $(document).ready(function () {
   // $("#isLegalModal").addClass('reveal')
   // save information to local storage
   // if click yes
-  $("#isLegalYes").click(function () {
+  $("#isLegalYes").click(function (event) {
+    event.preventDefault()
     console.log('true will be saved')
     localStorage.setItem("isLegal", "21")
     // document.location.href = 'preferences.html';
   });
   // if click no
-  $("#isLegalNo").click(function () {
+  $("#isLegalNo").click(function (event) {
+    event.preventDefault()
     console.log('false will be saved')
     localStorage.setItem("isLegal", "1")
+    localStorage.removeItem("isLegal")
     document.location.href = 'https://www.youtube.com/watch?v=aucAFuZJuC4';
   })
+
+  $("#getStarted").click(function (event) {
+    event.preventDefault();
+    console.log('Lets get started')
+    
+    document.location.href = 'preferences.html';
+  });
 
   drinkInfo('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=12528')
 
