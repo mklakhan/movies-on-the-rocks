@@ -9,9 +9,9 @@ You can find the repo on [GitHub](https://github.com/mklakhan/movies-on-the-rock
 In this application we utilized the Open Movie Database (OMDb) API to implement a search for movie titles & the associated genres. We also utilized the Cocktail DB API to return drink results with ingredients & instructions. Once a user confirms they are of legal drinking age, the user is able to "Get Started" by entering in a movie title or genre. Once the input is submitted, drink results are returned with ingredients and instructions. 
 
 ### Future Development
-Ability for the user to select the alcohol type, so that recommendations are personalized for the preferences of the user.
-Ability to save the drink recommendations in a favorites section so that a user can easily retrieve the drink recipes they enjoyed.
-Ability to dislike a drink recommendation so that a user can generate an alternative recommendation.
+- Ability for the user to select the alcohol type, so that recommendations are personalized for the preferences of the user.
+- Ability to save the drink recommendations in a favorites section so that a user can easily retrieve the drink recipes they enjoyed.
+- Ability to dislike a drink recommendation so that a user can generate an alternative recommendation.
 
  
 
@@ -19,14 +19,14 @@ Ability to dislike a drink recommendation so that a user can generate an alterna
 
 
 ## Technologies & Credits
-Foundation - Responsive Front-End Framework
-Google Fonts 
-CocktailDB API - https://www.thecocktaildb.com/api.php
-OMDb API - http://www.omdbapi.com/ 
+- Foundation - Responsive Front-End Framework - https://get.foundation/
+- Google Fonts - https://fonts.google.com/
+- CocktailDB API - https://www.thecocktaildb.com/api.php
+- mOMDb API - http://www.omdbapi.com/ 
 
 ## Contributors
-Ryan Conat
-Matt Hayden
-Manpreet Lakhan
-David Sotomayor
+- Ryan Conat
+- Matt Hayden
+- Manpreet Lakhan
+- David Sotomayor
 
