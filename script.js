@@ -139,7 +139,7 @@ $("#reset").click(function(){
   $('#submitBtnTitle').addClass('hide')
 })
 
-$("#submitBtn").click(function(){
+$("#submitBtnTitle").click(function(){
     console.log (userMovie.val())
     var omdbQueryURL = 'http://www.omdbapi.com/?apikey=' + omdbAPIKey + '&t=' + userMovie.val()
     // Dropdown menu for the ingredient selector
