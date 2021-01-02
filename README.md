@@ -22,7 +22,7 @@ In this application we utilized the Open Movie Database (OMDb) API to implement 
 - Foundation - Responsive Front-End Framework - https://get.foundation/
 - Google Fonts - https://fonts.google.com/
 - CocktailDB API - https://www.thecocktaildb.com/api.php
-- mOMDb API - http://www.omdbapi.com/ 
+- OMDb API - http://www.omdbapi.com/ 
 
 ## Contributors
 - Ryan Conat
