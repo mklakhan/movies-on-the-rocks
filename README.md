@@ -1,64 +1,32 @@
 # Movies on the Rocks
+A web application that shakes up your movie night by recommending beverages based on the flicks you're watching, so you feel part of all the action!
 
-## Description 
-```
-The webpage is hosted on [GitHub](https://www.xxxxxxx.com).
+The webpage is hosted on [GitHub](https://www.xxxxxxx.com)
 
-You can find the repo on [GitHub](https://github.com/mklakhan/movies-on-the-rocks).
+You can find the repo on [GitHub](https://github.com/mklakhan/movies-on-the-rocks)
 
-Main Pictures Here
-![Website Layout](main.jpg)
-```
+## Approach
+In this application we utilized the Open Movie Database (OMDb) API to implement a search for movie titles & the associated genres. We also utilized the Cocktail DB API to return drink results with ingredients & instructions. Once a user confirms they are of legal drinking age, the user is able to "Get Started" by entering in a movie title or genre. Once the input is submitted, drink results are returned with ingredients and instructions. 
 
-## Table of Contents
-```
-* [List of Files](#List-of-Files)
-* [Usage](#Usage)
-* [Credits](#Credits)
-```
+### Future Development
+- Ability for the user to select the alcohol type, so that recommendations are personalized for the preferences of the user.
+- Ability to save the drink recommendations in a favorites section so that a user can easily retrieve the drink recipes they enjoyed.
+- Ability to dislike a drink recommendation so that a user can generate an alternative recommendation.
 
-## User Story
+ 
 
-```
-As a user, I want to get recommendations for cocktails/beverages that pair well with the movies that I am watching, so that I can get through the pandemic. 
-```
+## Screenshots
 
-## Acceptance Criteria
 
-```
+## Technologies & Credits
+- Foundation - Responsive Front-End Framework - https://get.foundation/
+- Google Fonts - https://fonts.google.com/
+- CocktailDB API - https://www.thecocktaildb.com/api.php
+- OMDb API - http://www.omdbapi.com/ 
 
-```
+## Contributors
+- Ryan Conat
+- Matt Hayden
+- Manpreet Lakhan
+- David Sotomayor
 
-## List of Files
-```
-<ul>
-    <li>index.html</li>
-    <li>style.css</li>
-    <li>script.js</li>
-    <li>README.md</li>
-    <li>file</li>
-    <li>file</li>
-    <li>file</li>
-    <li>file</li>
-    <li>file</li>
-</ul>
-```
-
-## Usage 
-```
-usage.......
-```
-
-## Tech Used
-
-```
-
-```
-
-## Credits
-
-```
-OMDB API - http://www.omdbapi.com/
-TTheCocktailDB API - https://www.thecocktaildb.com/
-
-```
