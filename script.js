@@ -117,6 +117,7 @@ $("#titleBtn").click(function(){
   $('#titleBtn').addClass('hide')
   $('#genreBtn').addClass('hide')
   $('#reset').removeClass('hide')
+  $('#submitBtn').removeClass('hide')
 })
 
 // click listener to show movie genre form
@@ -125,6 +126,15 @@ $("#genreBtn").click(function(){
   $('#titleBtn').addClass('hide')
   $('#genreBtn').addClass('hide')
   $('#reset').removeClass('hide')
+  $('#submitBtn').removeClass('hide')
+})
+
+$("#reset").click(function(){
+  $('#genreForm').addClass('hide')
+  $('#titleForm').addClass('hide')
+  $('#titleBtn').removeClass('hide')
+  $('#genreBtn').removeClass('hide')
+  $('#reset').addClass('hide')
 })
 
 $("#submitBtn").click(function(){
