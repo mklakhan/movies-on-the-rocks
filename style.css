@@ -160,6 +160,12 @@
   
 }
 
+.titleForm, .genreForm{
+ display: flex;
+ justify-content: center;
+}
+
+
   /* About Us page */
 
   .about-us {
