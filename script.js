@@ -21,9 +21,6 @@ var drinkData
 // user selected drinkPreference
 var drinkPreference
 
-// Modal to check for age
-var isLegal = 'false'
-
 // URL variables
 var queryURLCategory = 'https://www.thecocktaildb.com/api/json/v1/1/random.php/filter.php?c='
 // var queryURLCategory = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c='
@@ -111,6 +108,20 @@ var compare = [{
 },
 ]
 
+// Modal for age check on page load
+$(document).ready(function () {
+  const ageVerification = (+localStorage.getItem("isLegal"));
+  
+  setTimeout(function () {
+    console.log("Before Modal Load")
+    console.log("Checking ageVerification", ageVerification)
+    if (!ageVerification || ageVerification < 21) {
+      console.log("Opening Modal");
+      $("#openAgeModal").click();
+    }
+  }, 100)
+
+
 // click listener to show movie title form
 $("#titleBtn").click(function(){
   $('#titleForm').removeClass('hide')
@@ -138,6 +149,12 @@ $("#reset").click(function(){
   $('#submitBtnGenre').addClass('hide')
   $('#submitBtnTitle').addClass('hide')
 })
+
+$("#submitBtnGenre").click(function(){
+  // dropdown menu for the Genre selector
+  var dropdownMenuGenre = $("#dropdownMenuGenre :selected")
+})
+
 
 $("#submitBtnTitle").click(function(){
     console.log (userMovie.val())
@@ -200,3 +217,29 @@ $("#submitBtnTitle").click(function(){
       }
     });
 });
+
+// modal for age check
+  // $("#isLegalModal").addClass('reveal')
+  // save information to local storage
+  // if click yes
+  $("#isLegalYes").click(function (event) {
+    event.preventDefault()
+    console.log('true will be saved')
+    localStorage.setItem("isLegal", "21")
+    // document.location.href = 'preferences.html';
+  });
+  // if click no
+  $("#isLegalNo").click(function (event) {
+    event.preventDefault()
+    console.log('false will be saved')
+    localStorage.setItem("isLegal", "1")
+    localStorage.removeItem("isLegal")
+    document.location.href = 'https://www.youtube.com/watch?v=aucAFuZJuC4';
+  })
+
+  $("#getStarted").click(function (event) {
+    event.preventDefault();
+    console.log('Lets get started')
+    
+    document.location.href = 'preferences.html';
+  });
