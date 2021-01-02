@@ -3,14 +3,19 @@
 // card div for the drink results
 var results = $('#results')
 
-// User defined movie title
-var userMovie = $('#movieTitle')
 
-// User defined genre
-var userGenre
+// If the user wants to select a drink based on title
+  var titleBtn = $('#titleBtn')
+  // User defined movie title
+  var userMovie = $('#movieTitle')
+  // genre of userMovie gotten from ajax of omdb when selecting by title
+  var userMovieGenre
 
-// genre of userMovie gotten from ajax of omdb
-var userMovieGenre
+
+// If the user wants to select a drink based on genre
+  var genreBtn = $('genreBtn')
+  // User defined genre
+  var userGenre
 
 // drink recipe data gotten from ajax of TheCocktailDB
 var drinkData
@@ -108,68 +113,64 @@ var compare = [{
 },
 ]
 
-$("#submitBtn").click(function () {
-  console.log(userMovie.val())
-  var omdbQueryURL = 'http://www.omdbapi.com/?apikey=' + omdbAPIKey + '&t=' + userMovie.val()
-  // Dropdown menu for the ingredient selector
-  var dropdownMenuIngredient = $("#dropdownMenuIngredient :selected")
-  // dropdown menu for the Genre selector
-  var dropdownMenuGenre = $("#dropdownMenuGenre :selected")
-  console.log(dropdownMenuIngredient.val())
-  console.log(dropdownMenuGenre.val())
+$("#submitBtn").click(function(){
+    console.log (userMovie.val())
+    var omdbQueryURL = 'http://www.omdbapi.com/?apikey=' + omdbAPIKey + '&t=' + userMovie.val()
+    // Dropdown menu for the ingredient selector
+    var dropdownMenuIngredient = $("#dropdownMenuIngredient :selected")
+    // dropdown menu for the Genre selector
+    var dropdownMenuGenre = $("#dropdownMenuGenre :selected")
+    console.log(dropdownMenuIngredient.val())
+    console.log(dropdownMenuGenre.val())
 
-  $.ajax({
-    url: omdbQueryURL
-  }).then(function (response) {
-    // console.log(response)
-    var userMovieGenre = response.Genre.split(",");
+    $.ajax({
+        url: omdbQueryURL
+      }).then(function(response) {
+          // console.log(response)
+        var userMovieGenre = response.Genre.split(",");
 
-    // console.log(userMovieGenre)
-    for (i = 0; i < userMovieGenre.length; i++) {
-      // Genre = userMovieGenre[i].trim()
-      // for loop over compare variable
-      for (j = 0; j < compare.length; j++) {
-        // console.log(userMovieGenre[i].trim())
-        // console.log(compare[j].genre)
-        if (userMovieGenre[i].trim() === compare[j].genre.trim()) {
-          var finalCategory = compare[j].drinkCategory.toString().split(",")
-          // console.log(finalCategory)
-          if (Array.isArray(finalCategory)) {
-            // console.log('This is an array')
-            for (k = 0; k < finalCategory.length; k++) {
-              $.ajax({
-                url: queryURLCategory + compare[j].drinkCategory
-              }).then(function (drinkResponseTwo) {
-                console.log(drinkResponseTwo)
-                // prepend the drink data to the DOM
-                results.prepend('<img src=' + drinkResponseTwo.drinks[0].strDrinkThumb + ' />')
-                results.prepend('<h2>' + drinkResponseTwo.drinks[0].strDrink + '</h2>')
-                // console.log(drinkResponseTwo.drinks[0].strDrinkThumb)
-              })
-            }
-          } else {
-            // Ajax call to grab drink data
-            $.ajax({
-              url: queryURLCategory + compare[j].drinkCategory.split(",")
-            }).then(function (drinkResponse) {
-              console.log(drinkResponse)
-              // prepend the drink data to the DOM 
-              results.prepend('<img src=' + drinkResponse.drinks[0].strDrinkThumb + ' />')
-              results.prepend('<h2>' + drinkResponse.drinks[0].strDrink + '</h2>')
-              // console.log(drinkResponse.drinks[0].strDrinkThumb)
-            })
-          }
-          // console.log(compare[j].drinkCategory.split(","))
-        } else {
-          console.log("no drink recommendations based on that genre")
-          // console.log("it's not working")
-          // console.log(compare[j].drinkCategory.toString())
-        }
-      };
-    }
-  });
+        // console.log(userMovieGenre)
+        for (i=0; i < userMovieGenre.length; i++) {
+          // Genre = userMovieGenre[i].trim()
+            // for loop over compare variable
+            for (j=0; j < compare.length; j++) {
+              // console.log(userMovieGenre[i].trim())
+              // console.log(compare[j].genre)
+              if (userMovieGenre[i].trim() === compare[j].genre.trim()) {
+                var finalCategory=compare[j].drinkCategory.toString().split(",")
+                // console.log(finalCategory)
+                if (Array.isArray(finalCategory)){
+                // console.log('This is an array')
+                  for (k=0; k < finalCategory.length; k++) {
+                    $.ajax({
+                      url: queryURLCategory + compare[j].drinkCategory
+                    }).then(function(drinkResponseTwo) {
+                        console.log(drinkResponseTwo)
+                        // prepend the drink data to the DOM
+                        results.prepend('<img src=' + drinkResponseTwo.drinks[0].strDrinkThumb + ' />')
+                        results.prepend('<h2>' + drinkResponseTwo.drinks[0].strDrink + '</h2>')
+                        // console.log(drinkResponseTwo.drinks[0].strDrinkThumb)
+                    })
+                  }
+                } else {
+                // Ajax call to grab drink data
+                  $.ajax({
+                    url: queryURLCategory + compare[j].drinkCategory.split(",")
+                  }).then(function(drinkResponse) {
+                      console.log(drinkResponse)
+                      // prepend the drink data to the DOM 
+                      results.prepend('<img src=' + drinkResponse.drinks[0].strDrinkThumb + ' />')
+                      results.prepend('<h2>' + drinkResponse.drinks[0].strDrink + '</h2>')
+                      // console.log(drinkResponse.drinks[0].strDrinkThumb)
+                  })
+                }
+              // console.log(compare[j].drinkCategory.split(","))
+              } else {
+                console.log("no drink recommendations based on that genre")
+              // console.log("it's not working")
+              // console.log(compare[j].drinkCategory.toString())
+              }
+        };
+      }
+    });
 });
-
-// When user inputs a movie we will do an ajax call to OMDB to pull the genre from that movie
-// do an ajax call which will return a random drink in a category based on the genre of the movie the user selected
-// prepend the movie synopsis to the DOM
