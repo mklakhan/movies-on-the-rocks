@@ -5,17 +5,17 @@ var results = $('#results')
 
 
 // If the user wants to select a drink based on title
-var titleBtn = $('#titleBtn')
-// User defined movie title
-var userMovie = $('#movieTitle')
-// genre of userMovie gotten from ajax of omdb when selecting by title
-var userMovieGenre
+  var titleBtn = $('#titleBtn')
+  // User defined movie title
+  var userMovie = $('#movieTitle')
+  // genre of userMovie gotten from ajax of omdb when selecting by title
+  var userMovieGenre
 
 
 // If the user wants to select a drink based on genre
-var genreBtn = $('genreBtn')
-// User defined genre
-var userGenre
+  var genreBtn = $('genreBtn')
+  // User defined genre
+  var userGenre
 
 // drink recipe data gotten from ajax of TheCocktailDB
 var drinkData
