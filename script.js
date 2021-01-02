@@ -3,14 +3,19 @@
 // card div for the drink results
 var results = $('#results')
 
+
+// If the user wants to select a drink based on title
+var titleBtn = $('#titleBtn')
 // User defined movie title
 var userMovie = $('#movieTitle')
+// genre of userMovie gotten from ajax of omdb when selecting by title
+var userMovieGenre
 
+
+// If the user wants to select a drink based on genre
+var genreBtn = $('genreBtn')
 // User defined genre
 var userGenre
-
-// genre of userMovie gotten from ajax of omdb
-var userMovieGenre
 
 // drink recipe data gotten from ajax of TheCocktailDB
 var drinkData
