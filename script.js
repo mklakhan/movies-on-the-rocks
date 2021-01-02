@@ -117,7 +117,7 @@ $("#titleBtn").click(function(){
   $('#titleBtn').addClass('hide')
   $('#genreBtn').addClass('hide')
   $('#reset').removeClass('hide')
-  $('#submitBtn').removeClass('hide')
+  $('#submitBtnTitle').removeClass('hide')
 })
 
 // click listener to show movie genre form
@@ -126,7 +126,7 @@ $("#genreBtn").click(function(){
   $('#titleBtn').addClass('hide')
   $('#genreBtn').addClass('hide')
   $('#reset').removeClass('hide')
-  $('#submitBtn').removeClass('hide')
+  $('#submitBtnGenre').removeClass('hide')
 })
 
 $("#reset").click(function(){
@@ -135,6 +135,8 @@ $("#reset").click(function(){
   $('#titleBtn').removeClass('hide')
   $('#genreBtn').removeClass('hide')
   $('#reset').addClass('hide')
+  $('#submitBtnGenre').addClass('hide')
+  $('#submitBtnTitle').addClass('hide')
 })
 
 $("#submitBtn").click(function(){
