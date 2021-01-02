@@ -32,11 +32,18 @@
         </div>
         <!-- End Top Bar -->
 
-        <h2>To get started, please complete the forms below!</h2>
+        <h2 class="heading">To get started, please select how you would like to search</h2>
+
+        <div class="title-Btn">
+            <button id="titleBtn" type="button" class="primary button button large btnStyle">MOVIE TITLE</button>
+        </div>
+        <div class="genre-Btn">
+            <button id="genreBtn" type="button" class="primary button button large btnStyle">MOVIE GENRE</button>
+        </div>
 
         <div class="grid-container">
             <div class="grid-x grid-padding-x">
-                <div class="medium-6 cell">
+                <div class="medium-6 cell hide">
                     <form>
 
                         <p class="form-heading">Drinks Based on Movie Title</p>
@@ -45,7 +52,7 @@
                     </form>
                 </div>
 
-                <div class="medium-6 cell">
+                <div class="medium-6 cell hide">
                     <form>
                         <p class="form-heading">Drinks Based on Movie Genre</p>
                         <select id="dropdownMenuGenre">
@@ -73,7 +80,7 @@
             </div>
 
 
-            <div class="grid-x grid-padding-x preference">
+            <!-- <div class="grid-x grid-padding-x preference">
                 <div class="medium-6 cell">
                     <form>
                         <p class="form-heading">Do you have a preference on beverage type?</p>
@@ -92,11 +99,11 @@
                         </select>
                     </form>
                 </div>
-            </div>
+            </div> -->
         </div>
 
 
-        <div class="submit-Btn">
+        <div class="submit-Btn hide">
             <button id="submitBtn" type="button" class="success button button large btnStyle">Submit</button>
         </div>
 

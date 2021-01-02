@@ -129,7 +129,29 @@
 
   /* Drink Picks page */
 
+  .heading{
+    text-align: center;
+  }
+
   .submit-Btn{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.title-Btn{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.genre-Btn{
   margin-top: 50px;
   margin-bottom: 50px;
   display: flex;
