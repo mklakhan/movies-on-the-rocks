@@ -41,9 +41,13 @@
             <button id="genreBtn" type="button" class="primary button button large btnStyle">MOVIE GENRE</button>
         </div>
 
+        <div class="submit-Btn">
+            <button id="reset" type="button" class="warning button button large btnStyle hide">Go Back</button>
+        </div>
+
         <div class="grid-container">
             <div class="grid-x grid-padding-x">
-                <div class="medium-6 cell hide">
+                <div id= "titleForm" class="medium-6 cell hide">
                     <form>
 
                         <p class="form-heading">Drinks Based on Movie Title</p>
@@ -52,7 +56,7 @@
                     </form>
                 </div>
 
-                <div class="medium-6 cell hide">
+                <div id="genreForm" class="medium-6 cell hide">
                     <form>
                         <p class="form-heading">Drinks Based on Movie Genre</p>
                         <select id="dropdownMenuGenre">

@@ -5,7 +5,6 @@ var results = $('#results')
 
 
 // If the user wants to select a drink based on title
-  var titleBtn = $('#titleBtn')
   // User defined movie title
   var userMovie = $('#movieTitle')
   // genre of userMovie gotten from ajax of omdb when selecting by title
@@ -13,7 +12,6 @@ var results = $('#results')
 
 
 // If the user wants to select a drink based on genre
-  var genreBtn = $('genreBtn')
   // User defined genre
   var userGenre
 
@@ -112,6 +110,22 @@ var compare = [{
   drinkCategory: 'Shot'
 },
 ]
+
+// click listener to show movie title form
+$("#titleBtn").click(function(){
+  $('#titleForm').removeClass('hide')
+  $('#titleBtn').addClass('hide')
+  $('#genreBtn').addClass('hide')
+  $('#reset').removeClass('hide')
+})
+
+// click listener to show movie genre form
+$("#genreBtn").click(function(){
+  $('#genreForm').removeClass('hide')
+  $('#titleBtn').addClass('hide')
+  $('#genreBtn').addClass('hide')
+  $('#reset').removeClass('hide')
+})
 
 $("#submitBtn").click(function(){
     console.log (userMovie.val())
