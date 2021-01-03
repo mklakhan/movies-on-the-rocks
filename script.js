@@ -121,6 +121,7 @@ $(document).ready(function () {
     }
   }, 100)
 
+});
 
 // click listener to show movie title form
 $("#titleBtn").click(function(){
@@ -140,6 +141,7 @@ $("#genreBtn").click(function(){
   $('#submitBtnGenre').removeClass('hide')
 })
 
+// click listener on reset button
 $("#reset").click(function(){
   $('#genreForm').addClass('hide')
   $('#titleForm').addClass('hide')
@@ -150,9 +152,28 @@ $("#reset").click(function(){
   $('#submitBtnTitle').addClass('hide')
 })
 
+// click listener for submit button using genre category
 $("#submitBtnGenre").click(function(){
   // dropdown menu for the Genre selector
   var dropdownMenuGenre = $("#dropdownMenuGenre :selected")
+  console.log(dropdownMenuGenre.val())
+    // for loop over compare variable
+    for (j=0; j < compare.length; j++) {
+      // console.log(dropdownMenuGenre.val() + ' ' + compare[j].genre.trim())
+      if (dropdownMenuGenre.val() === compare[j].genre.trim()) {
+        var finalCategory=compare[j].drinkCategory.toString().split(",")
+        
+        var genreURL = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=' + finalCategory.toString()
+
+        // ajax call to pull drink from category
+        $.ajax({
+          url: genreURL
+        }).then(function(genreResponse) {
+          
+          console.log(genreResponse)
+        })
+      }
+    }
 })
 
 
@@ -160,86 +181,89 @@ $("#submitBtnTitle").click(function(){
     console.log (userMovie.val())
     var omdbQueryURL = 'http://www.omdbapi.com/?apikey=' + omdbAPIKey + '&t=' + userMovie.val()
     // Dropdown menu for the ingredient selector
-    var dropdownMenuIngredient = $("#dropdownMenuIngredient :selected")
+    // var dropdownMenuIngredient = $("#dropdownMenuIngredient :selected")
     // dropdown menu for the Genre selector
-    var dropdownMenuGenre = $("#dropdownMenuGenre :selected")
-    console.log(dropdownMenuIngredient.val())
-    console.log(dropdownMenuGenre.val())
+    // var dropdownMenuGenre = $("#dropdownMenuGenre :selected")
+    // console.log(dropdownMenuIngredient.val())
+    // console.log(dropdownMenuGenre.val())
 
     $.ajax({
         url: omdbQueryURL
       }).then(function(response) {
-          // console.log(response)
+          console.log(response)
         var userMovieGenre = response.Genre.split(",");
 
-        // console.log(userMovieGenre)
+        console.log(userMovieGenre)
         for (i=0; i < userMovieGenre.length; i++) {
-          // Genre = userMovieGenre[i].trim()
+          genre = userMovieGenre[i].trim()
+          console.log(genre)
+
             // for loop over compare variable
             for (j=0; j < compare.length; j++) {
               // console.log(userMovieGenre[i].trim())
               // console.log(compare[j].genre)
               if (userMovieGenre[i].trim() === compare[j].genre.trim()) {
                 var finalCategory=compare[j].drinkCategory.toString().split(",")
+                console.log(finalCategory)
                 // console.log(finalCategory)
-                if (Array.isArray(finalCategory)){
+                // if (Array.isArray(finalCategory)){
                 // console.log('This is an array')
-                  for (k=0; k < finalCategory.length; k++) {
-                    $.ajax({
-                      url: queryURLCategory + compare[j].drinkCategory
-                    }).then(function(drinkResponseTwo) {
-                        console.log(drinkResponseTwo)
+                  // for (k=0; k < finalCategory.length; k++) {
+                  //   $.ajax({
+                  //     url: queryURLCategory + compare[j].drinkCategory
+                  //   }).then(function(drinkResponseTwo) {
+                  //       console.log(drinkResponseTwo)
                         // prepend the drink data to the DOM
-                        results.prepend('<img src=' + drinkResponseTwo.drinks[0].strDrinkThumb + ' />')
-                        results.prepend('<h2>' + drinkResponseTwo.drinks[0].strDrink + '</h2>')
+                        // results.prepend('<img src=' + drinkResponseTwo.drinks[0].strDrinkThumb + ' />')
+                        // results.prepend('<h2>' + drinkResponseTwo.drinks[0].strDrink + '</h2>')
                         // console.log(drinkResponseTwo.drinks[0].strDrinkThumb)
-                    })
-                  }
-                } else {
+                    // })
+                //   }
+                // } else {
                 // Ajax call to grab drink data
-                  $.ajax({
-                    url: queryURLCategory + compare[j].drinkCategory.split(",")
-                  }).then(function(drinkResponse) {
-                      console.log(drinkResponse)
-                      // prepend the drink data to the DOM 
-                      results.prepend('<img src=' + drinkResponse.drinks[0].strDrinkThumb + ' />')
-                      results.prepend('<h2>' + drinkResponse.drinks[0].strDrink + '</h2>')
+                  // $.ajax({
+                  //   url: queryURLCategory + compare[j].drinkCategory.split(",")
+                  // }).then(function(drinkResponse) {
+                  //     console.log(drinkResponse)
+                  //     // prepend the drink data to the DOM 
+                  //     results.prepend('<img src=' + drinkResponse.drinks[0].strDrinkThumb + ' />')
+                  //     results.prepend('<h2>' + drinkResponse.drinks[0].strDrink + '</h2>')
                       // console.log(drinkResponse.drinks[0].strDrinkThumb)
-                  })
-                }
+                  // })
+              // }
               // console.log(compare[j].drinkCategory.split(","))
               } else {
-                console.log("no drink recommendations based on that genre")
-              // console.log("it's not working")
-              // console.log(compare[j].drinkCategory.toString())
-              }
+                console.log('else')
+            }
         };
       }
     });
 });
 
 // modal for age check
-  // $("#isLegalModal").addClass('reveal')
-  // save information to local storage
-  // if click yes
-  $("#isLegalYes").click(function (event) {
-    event.preventDefault()
-    console.log('true will be saved')
-    localStorage.setItem("isLegal", "21")
-    // document.location.href = 'preferences.html';
-  });
-  // if click no
-  $("#isLegalNo").click(function (event) {
-    event.preventDefault()
-    console.log('false will be saved')
-    localStorage.setItem("isLegal", "1")
-    localStorage.removeItem("isLegal")
-    document.location.href = 'https://www.youtube.com/watch?v=aucAFuZJuC4';
-  })
+// save information to local storage
 
-  $("#getStarted").click(function (event) {
-    event.preventDefault();
-    console.log('Lets get started')
-    
-    document.location.href = 'preferences.html';
-  });
+// if click yes
+$("#isLegalYes").click(function (event) {
+  event.preventDefault()
+  console.log('true will be saved')
+  localStorage.setItem("isLegal", "21")
+  // document.location.href = 'preferences.html';
+});
+
+// if click no
+$("#isLegalNo").click(function (event) {
+  event.preventDefault()
+  console.log('false will be saved')
+  localStorage.setItem("isLegal", "1")
+  localStorage.removeItem("isLegal")
+  document.location.href = 'https://www.youtube.com/watch?v=aucAFuZJuC4';
+});
+
+// Let's Get Started Link to Pref Page
+$("#getStarted").click(function (event) {
+  event.preventDefault();
+  console.log('Lets get started')
+  
+  document.location.href = 'preferences.html';
+});
