@@ -34,6 +34,7 @@ $("#titleBtn").click(function () {
   $('#reset').removeClass('hide')
   $('#submitBtnTitle').removeClass('hide')
 })
+
 // click listener to show movie genre form
 $("#genreBtn").click(function () {
   $('#genreForm').removeClass('hide')
@@ -42,6 +43,7 @@ $("#genreBtn").click(function () {
   $('#reset').removeClass('hide')
   $('#submitBtnGenre').removeClass('hide')
 })
+
 $("#reset").click(function(){
   $('#genreForm').addClass('hide')
   $('#titleForm').addClass('hide')
@@ -52,6 +54,7 @@ $("#reset").click(function(){
   $('#submitBtnGenre').addClass('hide')
   $('#submitBtnTitle').addClass('hide')
 })
+
 // object comparing genre to drink category
 var compare = {
   'Action': ['Beer'],
@@ -73,9 +76,11 @@ var compare = {
   'Thriller': ['Ordinary Drink', 'Beer'],
   'Western': ['Shot'],
 }
+
 function getPosition(arr) {
   return Math.floor(Math.random() * (arr.length))
 }
+
 $("#submitBtnTitle").on('click', function (event) {
   event.preventDefault();
   // Do not allow userMovie to be empty
@@ -83,14 +88,15 @@ $("#submitBtnTitle").on('click', function (event) {
   $.ajax({ url: omdbQueryURL(userMovie.val()) }).then((response) => {
     $('.genre').remove()
     // Converts string on Genre into a array of strings
+
     // grabs genre from ajax object
     const getGenreTypes = (response.Genre || "").split(", ");
     // for each string in ajax object genre
-    getGenreTypes.forEach(genre => {
-    drinkData(genre)
-    })
+    drinkData(getGenreTypes[getPosition(getGenreTypes)])
+    console.log(getGenreTypes[getPosition(getGenreTypes)])
   })
 });
+
 function drinkData(genre) {
   // trim the result
   const currentDrinks = compare[genre.trim()];
@@ -111,6 +117,7 @@ function drinkData(genre) {
     ])
   })
 }
+
 $("#submitBtnGenre").on('click', function (event) {
   event.preventDefault();
   // Do not allow userMovie to be empty
