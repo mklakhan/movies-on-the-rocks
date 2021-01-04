@@ -97,6 +97,8 @@ $("#submitBtnTitle").on('click', function (event) {
   })
 });
 
+var prefResults = $('#prefResults')
+
 function drinkData(genre) {
   // trim the result
   const currentDrinks = compare[genre.trim()];
@@ -104,19 +106,46 @@ function drinkData(genre) {
   const getDrinksCatagory = currentDrinks[getPosition(currentDrinks)]
   // returns one drink
   $.ajax({ url: queryURLCategory(getDrinksCatagory) }).then(response => {
-    results.append([
-      $('<div/>', { "class": 'genre' }).append([
-        $('<h4/>').css({ textAlign: 'center' }).text(genre.trim()),
-        $('<div/>').css({ display: 'flex' }).append([
-          $('<div/>').append([
-            $('<img/>', { src: response.drinks[0].strDrinkThumb, width: 150 }),
-            $('<h2/>').text(response.drinks[0].strDrink)
-          ])
-        ])
-      ])
-    ])
+
+    resetResults()
+    console.log(response.drinks[0])
+    $('#drink-title').append(`<h4 class="">${response.drinks[0].strDrink}</h4>`);
+
+        $('#drink-image').append(`<img src="${response.drinks[0].strDrinkThumb}" alt="${response.drinks[0].strDrink}" width="400" height="400">`);
+
+        $('#drink-instructions').append(`<p>${response.drinks[0].strInstructions}</p>`);
+
+        var hasStrIng = true;
+        var strIdx = 1
+        while (hasStrIng) {
+          var strIngredient = 'strIngredient' + strIdx;
+          var strIngredientVal = response.drinks[0][strIngredient];
+
+          var strMeasure = 'strMeasure' + strIdx;
+          var strMeasureVal = response.drinks[0][strMeasure];
+          if (strIngredientVal == null) {
+            hasStrIng = false;
+            return hasStrIng;
+          } else {
+            if (strMeasureVal !== null) {
+              console.log(strIngredientVal);
+              console.log(strMeasureVal);
+              $('#drink-ingredients').append(`<li>${strMeasureVal} ${strIngredientVal}</li>`)
+              ++strIdx;
+            } else {
+              console.log(strIngredientVal);
+              $('#drink-ingredients').append(`<li>${strIngredientVal}</li>`)
+              ++strIdx;
+            }
+
+          }
+        }
   })
 }
+
+function resetResults() {
+  $('#drink-title, #drink-image, #drink-ingredients, #drink-instructions').empty()
+} 
 
 $("#submitBtnGenre").on('click', function (event) {
   event.preventDefault();
