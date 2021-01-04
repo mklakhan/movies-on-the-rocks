@@ -6,12 +6,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Movies on the Rocks | Welcome</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/motion-ui@1.2.3/dist/motion-ui.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
   <link href="style.css" rel="stylesheet">
 </head>
 
 <body>
 
+  <!-- Start Age Modal -->
+  <a style="display: none;" id="openAgeModal" data-open="ageModal"></a>
+
+  <div class="reveal full" id="ageModal" data-reveal data-close-on-click="false" data-close-on-esc="false"
+    data-animation-in="fade-in" data-animation-out="fade-out">
+    <div id="innerModal">
+      <div id="modalText">
+        <p>Are you of legal drinking age?</p>
+      </div>
+      <div id="modalButtons">
+        <button id="isLegalYes" data-close class="success button">Yes</button>
+        <button id="isLegalNo" class="alert button">No</button>
+      </div>
+    </div>
+  </div>
+  <!-- End Age Modal -->
 
   <!-- Start Nav Bar -->
   <div class="top-bar">

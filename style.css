@@ -105,6 +105,10 @@
     margin: auto
   } */
 
+  #titleForm, #genreForm {
+    margin-top: 85px;
+  }
+
   div img {
     border-style: solid;
     border-width: 3px;
