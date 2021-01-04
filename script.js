@@ -1,269 +1,122 @@
-// DOM variables
-
+// Dom Variables
+// Dropdown menu for the ingredient selector
+// var dropdownMenuIngredient = $("#dropdownMenuIngredient :selected")
+// dropdown menu for the Genre selector
+// var dropdownMenuGenre = $("#dropdownMenuGenre")
 // card div for the drink results
 var results = $('#results')
-
-
-// If the user wants to select a drink based on title
-  // User defined movie title
-  var userMovie = $('#movieTitle')
-  // genre of userMovie gotten from ajax of omdb when selecting by title
-  var userMovieGenre
-
-
-// If the user wants to select a drink based on genre
-  // User defined genre
-  var userGenre
-
+// User defined movie title
+var userMovie = $('#movieTitle')
+// User defined genre
+var userGenre
+// genre of userMovie gotten from ajax of omdb
+var userMovieGenre
 // drink recipe data gotten from ajax of TheCocktailDB
 var drinkData
-
 // user selected drinkPreference
 var drinkPreference
-
+// Modal to check for age
+var isLegal = 'false'
 // URL variables
-var queryURLCategory = 'https://www.thecocktaildb.com/api/json/v1/1/random.php/filter.php?c='
+var omdbAPIKey = 'Trilogy'
+var omdbQueryURL = (movie) => `http://www.omdbapi.com/?apikey=${omdbAPIKey}&t=${movie}`;
+var queryURLCategory = (drink) => `https://www.thecocktaildb.com/api/json/v1/1/random.php/filter.php?c=${drink}`;
+var queryURL = () => `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=552`;
 // var queryURLCategory = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c='
 // var queryURLOrdinary = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink'
 // var queryURL = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=14029'
-var queryURL = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=552'
 // var queryURLID = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=AT&T'
-
-var omdbAPIKey = 'Trilogy'
-var omdbQueryURL = 'http://www.omdbapi.com/?apikey=' + omdbAPIKey + '&'
-var cocktailQueryURL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
-
-// object comparing genre to drink category
-var compare = [{
-  genre: 'Action',
-  drinkCategory: 'Beer'
-},
-{
-  genre: 'Adventure',
-  drinkCategory: 'Homemade Liqueur'
-},
-{
-  genre: 'Animation',
-  drinkCategory: ['Milk \/ Float \/ Shake', 'Soft Drink \/ Soda']
-},
-{
-  genre: 'Biography',
-  drinkCategory: 'Shot'
-},
-{
-  genre: 'Comedy',
-  drinkCategory: ['Beer', 'Cocktail', 'Ordinary Drink']
-},
-{
-  genre: 'Crime',
-  drinkCategory: 'Cocktail'
-},
-{
-  genre: 'Documentary',
-  drinkCategory: 'Coffee \/ Tea'
-},
-{
-  genre: 'Drama',
-  drinkCategory: 'Cocktail'
-},
-{
-  genre: 'Family',
-  drinkCategory: 'Soft Drink \/ Soda'
-},
-{
-  genre: 'Fantasy',
-  drinkCategory: 'Punch \/ Party Drink'
-},
-{
-  genre: 'History',
-  drinkCategory: 'Ordinary Drink'
-},
-{
-  genre: 'Horror',
-  drinkCategory: 'Punch \/ Party Drink'
-},
-{
-  genre: 'Musical',
-  drinkCategory: ['Ordinary Drink', 'Cocktail']
-},
-{
-  genre: 'Mystery',
-  drinkCategory: ['Ordinary Drink', 'Other\/Unknown']
-},
-{
-  genre: 'Romance',
-  drinkCategory: ['Cocoa', 'Milk \/ Float \/ Shake']
-},
-{
-  genre: 'Sci-Fi',
-  drinkCategory: 'Other\/Unknown'
-},
-{
-  genre: 'Thriller',
-  drinkCategory: ['Ordinary Drink', 'Beer']
-},
-{
-  genre: 'Western',
-  drinkCategory: 'Shot'
-},
-]
-
-// Modal for age check on page load
-$(document).ready(function () {
-  const ageVerification = (+localStorage.getItem("isLegal"));
-  
-  setTimeout(function () {
-    console.log("Before Modal Load")
-    console.log("Checking ageVerification", ageVerification)
-    if (!ageVerification || ageVerification < 21) {
-      console.log("Opening Modal");
-      $("#openAgeModal").click();
-    }
-  }, 100)
-
-});
-
-// click listener to show movie title form
-$("#titleBtn").click(function(){
+// var cocktailQueryURL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
+$("#titleBtn").click(function () {
   $('#titleForm').removeClass('hide')
   $('#titleBtn').addClass('hide')
   $('#genreBtn').addClass('invisible')
   $('#reset').removeClass('hide')
   $('#submitBtnTitle').removeClass('hide')
 })
-
 // click listener to show movie genre form
-$("#genreBtn").click(function(){
+$("#genreBtn").click(function () {
   $('#genreForm').removeClass('hide')
   $('#titleBtn').addClass('hide')
   $('#genreBtn').addClass('hide')
   $('#reset').removeClass('hide')
   $('#submitBtnGenre').removeClass('hide')
 })
-
-// click listener on reset button
 $("#reset").click(function(){
   $('#genreForm').addClass('hide')
   $('#titleForm').addClass('hide')
   $('#titleBtn').removeClass('hide')
   $('#genreBtn').removeClass('hide')
+  $('.genre').remove()
   $('#reset').addClass('hide')
   $('#submitBtnGenre').addClass('hide')
   $('#submitBtnTitle').addClass('hide')
 })
-
-// click listener for submit button using genre category
-$("#submitBtnGenre").click(function(){
-  // dropdown menu for the Genre selector
-  var dropdownMenuGenre = $("#dropdownMenuGenre :selected")
-  console.log(dropdownMenuGenre.val())
-    // for loop over compare variable
-    for (j=0; j < compare.length; j++) {
-      // console.log(dropdownMenuGenre.val() + ' ' + compare[j].genre.trim())
-      if (dropdownMenuGenre.val() === compare[j].genre.trim()) {
-        var finalCategory=compare[j].drinkCategory.toString().split(",")
-        
-        var genreURL = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=' + finalCategory.toString()
-
-        // ajax call to pull drink from category
-        $.ajax({
-          url: genreURL
-        }).then(function(genreResponse) {
-          
-          console.log(genreResponse)
-        })
-      }
-    }
-})
-
-
-$("#submitBtnTitle").click(function(){
-    console.log (userMovie.val())
-    var omdbQueryURL = 'http://www.omdbapi.com/?apikey=' + omdbAPIKey + '&t=' + userMovie.val()
-    // Dropdown menu for the ingredient selector
-    // var dropdownMenuIngredient = $("#dropdownMenuIngredient :selected")
-    // dropdown menu for the Genre selector
-    // var dropdownMenuGenre = $("#dropdownMenuGenre :selected")
-    // console.log(dropdownMenuIngredient.val())
-    // console.log(dropdownMenuGenre.val())
-
-    $.ajax({
-        url: omdbQueryURL
-      }).then(function(response) {
-          console.log(response)
-        var userMovieGenre = response.Genre.split(",");
-
-        console.log(userMovieGenre)
-        for (i=0; i < userMovieGenre.length; i++) {
-          genre = userMovieGenre[i].trim()
-          console.log(genre)
-
-            // for loop over compare variable
-            for (j=0; j < compare.length; j++) {
-              // console.log(userMovieGenre[i].trim())
-              // console.log(compare[j].genre)
-              if (userMovieGenre[i].trim() === compare[j].genre.trim()) {
-                var finalCategory=compare[j].drinkCategory.toString().split(",")
-                console.log(finalCategory)
-                // console.log(finalCategory)
-                // if (Array.isArray(finalCategory)){
-                // console.log('This is an array')
-                  // for (k=0; k < finalCategory.length; k++) {
-                  //   $.ajax({
-                  //     url: queryURLCategory + compare[j].drinkCategory
-                  //   }).then(function(drinkResponseTwo) {
-                  //       console.log(drinkResponseTwo)
-                        // prepend the drink data to the DOM
-                        // results.prepend('<img src=' + drinkResponseTwo.drinks[0].strDrinkThumb + ' />')
-                        // results.prepend('<h2>' + drinkResponseTwo.drinks[0].strDrink + '</h2>')
-                        // console.log(drinkResponseTwo.drinks[0].strDrinkThumb)
-                    // })
-                //   }
-                // } else {
-                // Ajax call to grab drink data
-                  // $.ajax({
-                  //   url: queryURLCategory + compare[j].drinkCategory.split(",")
-                  // }).then(function(drinkResponse) {
-                  //     console.log(drinkResponse)
-                  //     // prepend the drink data to the DOM 
-                  //     results.prepend('<img src=' + drinkResponse.drinks[0].strDrinkThumb + ' />')
-                  //     results.prepend('<h2>' + drinkResponse.drinks[0].strDrink + '</h2>')
-                      // console.log(drinkResponse.drinks[0].strDrinkThumb)
-                  // })
-              // }
-              // console.log(compare[j].drinkCategory.split(","))
-              } else {
-                console.log('else')
-            }
-        };
-      }
-    });
-});
-
-// modal for age check
-// save information to local storage
-
-// if click yes
-$("#isLegalYes").click(function (event) {
-  event.preventDefault()
-  console.log('true will be saved')
-  localStorage.setItem("isLegal", "21")
-  // document.location.href = 'preferences.html';
-});
-
-// if click no
-$("#isLegalNo").click(function (event) {
-  event.preventDefault()
-  console.log('false will be saved')
-  localStorage.setItem("isLegal", "1")
-  localStorage.removeItem("isLegal")
-  document.location.href = 'https://www.youtube.com/watch?v=aucAFuZJuC4';
-});
-
-// Let's Get Started Link to Pref Page
-$("#getStarted").click(function (event) {
+// object comparing genre to drink category
+var compare = {
+  'Action': ['Beer'],
+  'Adventure': ['Homemade Liqueur'],
+  'Animation': ['Milk \/ Float \/ Shake', 'Soft Drink \/ Soda'],
+  'Biography': ['Shot'],
+  'Comedy': ['Beer', 'Cocktail', 'Ordinary Drink'],
+  'Crime': ['Cocktail'],
+  'Documentary': ['Coffee \/ Tea'],
+  'Drama': ['Cocktail'],
+  'Family': ['Soft Drink \/ Soda'],
+  'Fantasy': ['Punch \/ Party Drink'],
+  'History': ['Ordinary Drink'],
+  'Horror': ['Punch \/ Party Drink'],
+  'Musical': ['Ordinary Drink', 'Cocktail'],
+  'Mystery': ['Ordinary Drink', 'Other\/Unknown'],
+  'Romance': ['Cocoa', 'Milk \/ Float \/ Shake'],
+  'Sci-Fi': ['Other\/Unknown'],
+  'Thriller': ['Ordinary Drink', 'Beer'],
+  'Western': ['Shot'],
+}
+function getPosition(arr) {
+  return Math.floor(Math.random() * (arr.length))
+}
+$("#submitBtnTitle").on('click', function (event) {
   event.preventDefault();
-  console.log('Lets get started')
-  
-  document.location.href = 'preferences.html';
+  // Do not allow userMovie to be empty
+  if (!userMovie.val()) return;
+  $.ajax({ url: omdbQueryURL(userMovie.val()) }).then((response) => {
+    $('.genre').remove()
+    // Converts string on Genre into a array of strings
+    // grabs genre from ajax object
+    const getGenreTypes = (response.Genre || "").split(", ");
+    // for each string in ajax object genre
+    getGenreTypes.forEach(genre => {
+    drinkData(genre)
+    })
+  })
+});
+function drinkData(genre) {
+  // trim the result
+  const currentDrinks = compare[genre.trim()];
+  // grab one genre
+  const getDrinksCatagory = currentDrinks[getPosition(currentDrinks)]
+  // returns one drink
+  $.ajax({ url: queryURLCategory(getDrinksCatagory) }).then(response => {
+    results.append([
+      $('<div/>', { "class": 'genre' }).append([
+        $('<h4/>').css({ textAlign: 'center' }).text(genre.trim()),
+        $('<div/>').css({ display: 'flex' }).append([
+          $('<div/>').append([
+            $('<img/>', { src: response.drinks[0].strDrinkThumb, width: 150 }),
+            $('<h2/>').text(response.drinks[0].strDrink)
+          ])
+        ])
+      ])
+    ])
+  })
+}
+$("#submitBtnGenre").on('click', function (event) {
+  event.preventDefault();
+  // Do not allow userMovie to be empty
+  var genre = $("#dropdownMenuGenre").val()
+  console.log(genre, 'i like');
+  if (!genre) return;
+  $('.genre').remove()
+  drinkData(genre)
 });
