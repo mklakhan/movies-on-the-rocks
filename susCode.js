@@ -38,6 +38,7 @@ var queryURL = () => `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid
 // var queryURLID = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=AT&T'
 // var cocktailQueryURL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
 
+
 $("#titleBtn").click(function () {
   $('#titleForm').removeClass('hide')
   $('#titleBtn').addClass('hide')
@@ -54,6 +55,7 @@ $("#genreBtn").click(function () {
   $('#reset').removeClass('hide')
   $('#submitBtnGenre').removeClass('hide')
 })
+
 
 $("#reset").click(function(){
   $('#genreForm').addClass('hide')
@@ -91,6 +93,7 @@ var compare = {
 function getPosition(arr) {
   return Math.floor(Math.random() * (arr.length))
 }
+
 
 $("#submitBtnTitle").on('click', function (event) {
   event.preventDefault();
