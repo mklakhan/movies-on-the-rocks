@@ -182,12 +182,12 @@ function drinkData(genre) {
             return hasStrIng;
           } else {
             if (strMeasureVal !== null) {
-              console.log(strIngredientVal);
-              console.log(strMeasureVal);
+              // console.log(strIngredientVal);
+              // console.log(strMeasureVal);
               $('#drink-ingredients').append(`<li>${strMeasureVal} ${strIngredientVal}</li>`)
               ++strIdx;
             } else {
-              console.log(strIngredientVal);
+              // console.log(strIngredientVal);
               $('#drink-ingredients').append(`<li>${strIngredientVal}</li>`)
               ++strIdx;
             }
