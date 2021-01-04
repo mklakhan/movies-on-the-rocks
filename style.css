@@ -9,19 +9,19 @@
 
 /* Home page: Hero & Intro */
 .hero-section {
-    background: url(assets/MoviesontheRocks.jpg) 50% no-repeat;
+    background: url(assets/MoviesontheRocks.jpg) 78%;
     background-size: cover;
-    height: 75vh;
-    text-align: center;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    height: 90vh;
+    /* text-align: center; */
+    /* display: -webkit-flex; */
+    /* display: -ms-flexbox; */
+    /* display: flex; */
+    /* -webkit-align-items: center; */
+        /* -ms-flex-align: center; */
+            /* align-items: center; */
+    /* -webkit-justify-content: center; */
+        /* -ms-flex-pack: center; */
+            /* justify-content: center; */
   }
   
   .hero-section .hero-section-text {
@@ -334,7 +334,7 @@
 
 footer {
   text-align: center;
-  padding: 4px;
+  padding: 5px;
   background-color: #987033;
   color: white;
   font-size: small;
