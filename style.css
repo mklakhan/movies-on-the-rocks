@@ -71,6 +71,20 @@
 
   }
 
+  .intro-text{
+    font-size: 28px;
+  }
+
+  #getStarted{
+    background-color: #4B7793;
+    color: white;
+    padding: 30px;
+    font-weight: bold;
+    font-size: 32px;
+    border: dotted;
+  }
+
+
 
   /* Home page: Movie and Cocktail of the Month Section */
 
@@ -164,6 +178,22 @@
  display: flex;
  justify-content: center;
 }
+
+#titleBtn, #genreBtn{
+  background-color: #4B7793;
+}
+
+#submitBtnTitle, #submitBtnGenre{
+  background-color: #838d92;
+  color: white;
+  margin-right: 10px;
+}
+
+#reset{
+  background-color: #987033;
+  color: white;
+}
+
 
 
   /* About Us page */
