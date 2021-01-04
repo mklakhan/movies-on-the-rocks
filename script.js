@@ -115,7 +115,7 @@ var compare = [{
 $("#titleBtn").click(function(){
   $('#titleForm').removeClass('hide')
   $('#titleBtn').addClass('hide')
-  $('#genreBtn').addClass('hide')
+  $('#genreBtn').addClass('invisible')
   $('#reset').removeClass('hide')
   $('#submitBtnTitle').removeClass('hide')
 })
