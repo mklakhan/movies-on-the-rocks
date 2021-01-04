@@ -173,10 +173,10 @@ $("#submitBtnGenre").click(function(){
 
         console.log(finalCategoryGenre[getPosition(finalCategoryGenre)])
 
-        $.ajax({
-                  url: genreURL + finalCategoryGenre[k]
-                }).then(function(genreResponseTwo) {
-                    console.log(genreResponseTwo)
+        // $.ajax({
+        //           url: genreURL + finalCategoryGenre[k]
+        //         }).then(function(genreResponseTwo) {
+        //             console.log(genreResponseTwo)
 
         // if (Array.isArray(finalCategoryGenre)){
         //   console.log('This is an array')
