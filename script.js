@@ -37,6 +37,9 @@ $("#titleBtn").click(function () {
   $('#genreBtn').addClass('hide')
   $('#reset').removeClass('hide')
   $('#submitBtnTitle').removeClass('hide')
+  $('.heading').addClass('hide')
+  $('.title-Btn').addClass('hide')
+  $('.genre-Btn').addClass('hide')
 })
 
 // click listener to show movie genre form
@@ -46,6 +49,9 @@ $("#genreBtn").click(function () {
   $('#genreBtn').addClass('hide')
   $('#reset').removeClass('hide')
   $('#submitBtnGenre').removeClass('hide')
+  $('.heading').addClass('hide')
+  $('.title-Btn').addClass('hide')
+  $('.genre-Btn').addClass('hide')
 })
 
 $("#reset").click(function(){
@@ -57,6 +63,9 @@ $("#reset").click(function(){
   $('#reset').addClass('hide')
   $('#submitBtnGenre').addClass('hide')
   $('#submitBtnTitle').addClass('hide')
+  $('.heading').removeClass('hide')
+  $('.title-Btn').removeClass('hide')
+  $('.genre-Btn').removeClass('hide')
 })
 
 // object for populating our choice description
@@ -122,8 +131,19 @@ var compare = {
   'Western': ['Shot'],
 }
 
-// use the drink array to return drink info (drink name, ingredients, measurements, & instructions)
 $(document).ready(function () {
+  const ageVerification = (+localStorage.getItem("isLegal"));
+  
+  setTimeout(function () {
+    console.log("Before Modal Load")
+    console.log("Checking ageVerification", ageVerification)
+    if (!ageVerification || ageVerification < 21) {
+      console.log("Opening Modal");
+      $("#openAgeModal").click();
+    }
+  }, 100)
+
+  // use the drink array to return drink info (drink name, ingredients, measurements, & instructions)
   function drinkInfo(url) {
     $.ajax({
       url: url
@@ -164,7 +184,35 @@ $(document).ready(function () {
         }
       })
   }
+
+  // modal for age check
+  // $("#isLegalModal").addClass('reveal')
+  // save information to local storage
+  // if click yes
+  $("#isLegalYes").click(function (event) {
+    event.preventDefault()
+    console.log('true will be saved')
+    localStorage.setItem("isLegal", "21")
+    // document.location.href = 'preferences.html';
+  });
+  // if click no
+  $("#isLegalNo").click(function (event) {
+    event.preventDefault()
+    console.log('false will be saved')
+    localStorage.setItem("isLegal", "1")
+    localStorage.removeItem("isLegal")
+    document.location.href = 'https://www.youtube.com/watch?v=aucAFuZJuC4';
+  })
+
+  $("#getStarted").click(function (event) {
+    event.preventDefault();
+    console.log('Lets get started')
+    
+    document.location.href = 'preferences.html';
+  });
+
   drinkInfo('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=12528')
+
 })
 
 function getPosition(arr) {
@@ -259,5 +307,3 @@ $("#submitBtnGenre").on('click', function (event) {
   drinkData(genre)
   
 });
-
-
