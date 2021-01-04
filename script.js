@@ -10,9 +10,11 @@ var userMovie = $('#movieTitle')
 // User defined genre
 var userGenre
 // genre of userMovie gotten from ajax of omdb
-var userMovieGenre
-// drink recipe data gotten from ajax of TheCocktailDB
-var drinkData
+var finalGenre
+
+var finalDrink
+
+var finalCategory
 // user selected drinkPreference
 var drinkPreference
 // Modal to check for age
@@ -55,6 +57,47 @@ $("#reset").click(function(){
   $('#submitBtnTitle').addClass('hide')
 })
 
+// object for populating our choice description
+var descriptions = {
+
+  'Action': "You chose the action movie " +  + ". We think you would really enjoy pairing it with" + finalDrink + ". Action movies are full of energy and excitement just like " + finalDrink + ".",
+
+  'Adventure': "You chose the adventure movie " + userMovie + ".  " + userMovie + " pairs great with " + finalDrink + ". Your drink choice should be as adventurous as your taste in movies!",
+
+  'Animation': "You chose the Animated movie " + userMovie + ". Explore your inner youth with a " + finalDrink + ". Fun and rich, the " + finalDrink + " will satisfy your sweet tooth while you enjoy your flick.",
+
+  'Biography': "Into Biographies I see. You'll need something a little stronger to get you through " + userMovie + ". Try a " + finalDrink + " to get you through the slower plot points and help you digest all the riveting info. You may need 2 or 3 to get you through the whole movie.",
+
+  'Comedy': "You chose the comedy " + userMovie + ". This will go great with " + finalDrink + " The only thing funnier than " + userMovie + " is your " + finalDrink + ".",
+
+  'Crime': "The movie " + userMovie + " is a classic crime movie. What better to drink with it than a classic cocktail. Try a " + finalDrink + " and turn your living room into your own personal speakeasy.",
+
+  'Documentary': "You'll need some caffeine to get you through the documentary " + userMovie + ". Coffee or tea would suit this best. Try making a " + finalDrink + ". This will definitely spice up your educational evening.",
+
+  'Drama': "You've got a flair for the dramatic. " + finalDrink + " will make sure your drink choice is as emotionally charged as what you're watching.",
+
+  'Family': "Family movies should be enjoyed with family. Make a movie night for everyone and grab some soda for the kids. While you've got the soda handy make sure to make yourself a " + finalDrink + ".",
+
+  'Fantasy': userMovie + " is a great fantasy movie. Invite the whole fellowship over to watch it and make sure to make extra " + finalDrink + " for all of them. ",
+
+  'History': "You must be a history buff! Despite being a bit boring, you can never go wrong with " + finalDrink + ". An easy watching movie needs an easy drinking cocktail.",
+
+  'Horror': "You certainly like scary things with your movie choice; " + userMovie + ". Hack up these ingredients and add some red food dye to really scare your friends with a nice bloody " + finalDrink + ".",
+
+  'Musical': "Sing along with " + userMovie + " while you enjoy sipping on your " + finalDrink + ". Musicals are best enjoyed with a nice drink on the side. Do-re-mi-fa-so-la-" + finalDrink + "-do.",
+
+  'Mystery': "Everyone likes a good mystery and " + userMovie + " will certainly deliver. " + finalDrink + " will be an excellent way to discover a new and exciting drink while figuring out \"who dun it\".",
+
+  'Romance': "When you want to get frisky you want a drink that helps set the mood. " + userMovie + " will set the stage and " + finalDrink + " will be sure to leave your sweetheart wanting a bit more sugar… ;-)",
+
+  'Sci-Fi': "In a kitchen not so far away, hopefully you have all the ingredients for " + finalDrink + ". Explore this far out drink while you are enjoying " + userMovie + ".",
+
+  'Thriller': userMovie + " will keep you on the edge of your seat. Help yourself calm down a nice easy " + finalDrink + ". ",
+
+  'Western': "Let's be real. What's a western movie without a few shots of moonshine? Whether you're  roping cattle or in a standoff with the deputy, make sure to bring some " + finalDrink + ". With " + finalDrink + " on the menu, you're sure to have the rootenest, tootenist evening you can imagine.",
+
+}
+
 // object comparing genre to drink category
 var compare = {
   'Action': ['Beer'],
@@ -93,7 +136,9 @@ $("#submitBtnTitle").on('click', function (event) {
     const getGenreTypes = (response.Genre || "").split(", ");
     // for each string in ajax object genre
     drinkData(getGenreTypes[getPosition(getGenreTypes)])
-    console.log(getGenreTypes[getPosition(getGenreTypes)])
+    console.log(finalCategory)
+    finalGenre = getGenreTypes[getPosition(getGenreTypes)]
+    console.log(finalGenre)
   })
 });
 
@@ -104,25 +149,34 @@ function drinkData(genre) {
   const currentDrinks = compare[genre.trim()];
   // grab one genre
   const getDrinksCatagory = currentDrinks[getPosition(currentDrinks)]
+  finalCategory = getDrinksCatagory
   // returns one drink
   $.ajax({ url: queryURLCategory(getDrinksCatagory) }).then(response => {
 
     resetResults()
     console.log(response.drinks[0])
+
+    finalDrink = response.drinks[0].strDrink
+
+    $('#genreAndCategory').append(finalGenre + ' / ' + finalCategory)
+
     $('#drink-title').append(`<h4 class="">${response.drinks[0].strDrink}</h4>`);
 
-        $('#drink-image').append(`<img src="${response.drinks[0].strDrinkThumb}" alt="${response.drinks[0].strDrink}" width="400" height="400">`);
+    $('#drink-image').append(`<img src="${response.drinks[0].strDrinkThumb}" alt="${response.drinks[0].strDrink}" width="400" height="400">`);
 
-        $('#drink-instructions').append(`<p>${response.drinks[0].strInstructions}</p>`);
+    $('#drink-instructions').append(`<p>${response.drinks[0].strInstructions}</p>`);
 
-        var hasStrIng = true;
-        var strIdx = 1
-        while (hasStrIng) {
-          var strIngredient = 'strIngredient' + strIdx;
-          var strIngredientVal = response.drinks[0][strIngredient];
+    console.log(descriptions)
+    $('#adLib').append(descriptions[finalGenre]);
 
-          var strMeasure = 'strMeasure' + strIdx;
-          var strMeasureVal = response.drinks[0][strMeasure];
+    var hasStrIng = true;
+    var strIdx = 1
+      while (hasStrIng) {
+      var strIngredient = 'strIngredient' + strIdx;
+      var strIngredientVal = response.drinks[0][strIngredient];
+
+        var strMeasure = 'strMeasure' + strIdx;
+        var strMeasureVal = response.drinks[0][strMeasure];
           if (strIngredientVal == null) {
             hasStrIng = false;
             return hasStrIng;
@@ -144,7 +198,7 @@ function drinkData(genre) {
 }
 
 function resetResults() {
-  $('#drink-title, #drink-image, #drink-ingredients, #drink-instructions').empty()
+  $('#drink-title, #drink-image, #drink-ingredients, #drink-instructions, #genreAndCategory, #adLib' ).empty()
 } 
 
 $("#submitBtnGenre").on('click', function (event) {
@@ -156,3 +210,5 @@ $("#submitBtnGenre").on('click', function (event) {
   $('.genre').remove()
   drinkData(genre)
 });
+
+
