@@ -219,7 +219,7 @@ function drinkData(genre) {
     finalDrink = response.drinks[0].strDrink
     finalGenre = genre
 
-    $('#genreAndCategory').append(finalGenre + ' / ' + finalCategory)
+    $('#genreAndCategory').append(finalGenre + ' / ' + userMovie)
     
     $('#drink-title').append(`<h4 class="">${response.drinks[0].strDrink}</h4>`);
 
