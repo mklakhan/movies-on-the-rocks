@@ -15,21 +15,21 @@
 <body>
 
     <!-- Start Age Modal -->
-  <a style="display: none;" id="openAgeModal" data-open="ageModal"></a>
+    <a style="display: none;" id="openAgeModal" data-open="ageModal"></a>
 
-  <div class="reveal full" id="ageModal" data-reveal data-close-on-click="false" data-close-on-esc="false"
-    data-animation-in="fade-in" data-animation-out="fade-out">
-    <div id="innerModal">
-      <div id="modalText">
-        <p>Are you of legal drinking age?</p>
-      </div>
-      <div id="modalButtons">
-        <button id="isLegalYes" data-close class="success button">Yes</button>
-        <button id="isLegalNo" class="alert button">No</button>
-      </div>
+    <div class="reveal full removeHeight" id="ageModal" data-reveal data-close-on-click="false" data-close-on-esc="false"
+        data-animation-in="fade-in" data-animation-out="fade-out">
+        <div id="innerModal">
+            <div id="modalText">
+                <p>Are you of legal drinking age?</p>
+            </div>
+            <div id="modalButtons">
+                <button id="isLegalYes" data-close class="success button">Yes</button>
+                <button id="isLegalNo" class="alert button">No</button>
+            </div>
+        </div>
     </div>
-  </div>
-  <!-- End Age Modal -->
+    <!-- End Age Modal -->
 
     <div class="container">
 
@@ -68,13 +68,11 @@
                 </form>
             </div>
 
-
-
             <div id="genreForm" class="medium-6 cell hide genreForm">
                 <form>
                     <p class="form-heading">Drinks Based on Movie Genre</p>
                     <select id="dropdownMenuGenre">
-                        <option value=""></option>
+                        <option value="">Select A Genre</option>
                         <option value="Action">Action</option>
                         <option value="Adventure">Adventure</option>
                         <option value="Animation">Animation</option>
@@ -95,31 +93,6 @@
                     </select>
                 </form>
             </div>
-
-
-
-
-
-            <!-- <div class="grid-x grid-padding-x preference">
-                <div class="medium-6 cell">
-                    <form>
-                        <p class="form-heading">Do you have a preference on beverage type?</p>
-                        <select id="dropdownMenuIngredient">
-                            <option value=""></option>
-                            <option value="beer">Beer</option>
-                            <option value="brandy">Brandy</option>
-                            <option value="cider">Cider</option>
-                            <option value="gin">Gin</option>
-                            <option value="mead">Mead</option>
-                            <option value="rum">Rum</option>
-                            <option value="tequila">Tequila</option>
-                            <option value="vodka">Vodka</option>
-                            <option value="whiskey">Whiskey</option>
-                            <option value="wine">Wine</option>
-                        </select>
-                    </form>
-                </div>
-            </div> -->
         </div>
 
 
@@ -133,35 +106,27 @@
 
         <section id="OurPicks">
             <div class="grid-x">
-              <div id='prefResults' class="cell small-12 text-center" style="margin-top: 3rem">
-                <h2 id=genreAndCategory>Movie and Cocktail of the Month: White Russian and The Big Lebowski </h2>
-              </div>
-              <!-- <div class="cell small-12 text-center" style="margin-top: 3rem"> -->
-                <!-- <h3>White Russians and The Big Lebowski</h3>
-              </div> -->
+                <div id='prefResults' class="cell small-12 text-center" style="margin-top: 3rem">
+                    <h2 id=genreAndCategory>Movie and Cocktail of the Month: White Russian and The Big Lebowski </h2>
+                </div>
                 <div class="cell small-8" style="margin-top: 2.5rem; margin-left: auto; margin-right: auto">
-                    <p id='adLib'>The White Russian saw a surge in popularity after the 1998 release of <i>The Big Lebowski</i>. Throughout the movie, it is the beverage of choice for the main character, Jeffrey "The Dude" Lebowski!</p>
+                    <p id='adLib'>The White Russian saw a surge in popularity after the 1998 release of <i>The Big
+                            Lebowski</i>. Throughout the movie, it is the beverage of choice for the main character,
+                        Jeffrey "The Dude" Lebowski!</p>
                 </div>
             </div>
             <div class="grid-container">
-                <div class="grid-x grid-margin-x grid-margin-y grid-padding-y grid-padding-x">
+                <div class="grid-x grid-margin-x grid-margin-y grid-padding-y grid-padding-x drink-mobile-view">
                     <div id="drink-title" class="cell small-12 text-center">
-                        <!-- <h4 class="">White Russian</h4> -->
                     </div>
                     <div id="drink-image" class="cell small-6 ">
-                        <!-- <img src="imgs/WhiteRussian.jpg" alt="White Russian" width="400" height="400"> -->
                     </div>
                     <div class="cell small-6 ingred">
                         <h5>Ingredients:</h5>
                         <ul id="drink-ingredients">
-                            <!-- <li>2 oz Vodka</li>
-                              <li>1 oz Coffee liqueur</li>
-                              <li>Light cream</li> -->
                         </ul>
                         <h5>Instructions:</h5>
                         <span id="drink-instructions">
-                            <!-- <p>Pour vodka and coffee liqueur over ice cubes in an old-fashioned glass. Fill with light cream and serve.
-                              </p> -->
                         </span>
                     </div>
                 </div>
@@ -181,6 +146,9 @@
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
         integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
+    <script>
+        $(document).foundation();
+    </script>
     <script src="script.js"></script>
 </body>
 

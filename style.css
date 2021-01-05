@@ -43,6 +43,10 @@
   background-size: cover;
 }
 
+.removeHeight {
+  top: 0px !important;
+}
+
 #innerModal {
   background-color: #353c44;
 }
@@ -345,3 +349,12 @@ footer {
   color: white;
   font-size: small;
   }
+
+@media screen and (max-width: 992px) {
+  .drink-mobile-view {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+  }
+}
