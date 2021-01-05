@@ -72,16 +72,18 @@
   }
 
   .intro-text{
-    font-size: 28px;
+    font-size: 23px;
+    text-align: center;
+    font-weight: 400;
   }
 
   #getStarted{
-    background-color: #4B7793;
+    background-color: #353c44;
     color: white;
     padding: 30px;
     font-weight: bold;
-    font-size: 32px;
-    border: dotted;
+    font-size: 28px;
+    border-style: groove;
   }
 
 
