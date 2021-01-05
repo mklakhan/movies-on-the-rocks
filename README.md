@@ -17,6 +17,8 @@ In this application we utilized the Open Movie Database (OMDb) API to implement 
 
 ## Screenshots
 ![alternativetext](assets/legalmodal.png)
+![alternativetext](assets/Homepage.png)
+![alternativetext](assets/moviesearch.png)
 
 
 ## Technologies & Credits
