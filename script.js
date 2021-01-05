@@ -263,6 +263,52 @@ $(document).ready(function () {
     }).catch(errorHandling) // catches error throw
   });
 
+  // function that takes an argument and appends data to the preference list
+  function drinkData(genre) {
+    // value of inputted movie title
+    var userMovie = userMovieRef.val();
+    // capitalizing movie title names with a space 
+    var spaceIdx = userMovie.search(' ')
+    if (spaceIdx > 0) {
+      userMovie = userMovie.charAt(0).toUpperCase() + userMovie.slice(1, spaceIdx) + ' ' + userMovie.charAt(spaceIdx+1).toUpperCase() + userMovie.slice(spaceIdx + 2)
+    } else {
+      userMovie = userMovie.charAt(0).toUpperCase() + userMovie.slice(1)
+    }
+    // trim the result
+    const currentDrinks = compare[genre.trim()].drink;
+
+    // grab one genre
+    const getDrinksCategory = currentDrinks[getPosition(currentDrinks)];
+
+    // gets the response data from ajax call (array of drinks)
+    $.ajax({ url: queryURLCategory(getDrinksCategory) }).then(response => {
+      // retrieve random drink from array
+      const currentDrink = response.drinks[getPosition(response.drinks)].idDrink;
+      // returns drink information
+      return $.ajax({ url: drinkId(currentDrink) }).then(response => {
+        // logs current drink data
+        console.log({genre, currentDrinks,  getDrinksCategory, currentDrink, response})
+        // runs reset function
+        resetResults()
+
+        var finalDrink = response.drinks[0].strDrink
+        const drinks = drinksIngredients(response.drinks[0])
+  
+        // appends adlib for the inputted movie if available
+        if (userMovie) {
+          $('#adLib').append(compare[genre].libs(userMovie, finalDrink));
+        }
+
+        // appends data for the current drink to the drink section on preferences page
+        $('#genreAndCategory').append(finalDrink)
+        $('#drink-title').append(`<h4 class="">Type: ${getDrinksCategory}</h4>`);
+        $('#drink-image').append(`<img src="${response.drinks[0].strDrinkThumb}" alt="${finalDrink}" width="400" height="400">`);
+        $('#drink-instructions').append(`<p>${response.drinks[0].strInstructions}</p>`);
+        $('#drink-ingredients').append(drinks);
+      })
+    }).catch(errorHandling) // catches errors
+  }
+
   // click listener for genre button
   $("#submitBtnGenre").on('click', function (event) {
     event.preventDefault();
@@ -272,3 +318,14 @@ $(document).ready(function () {
     drinkData(genre)
   });
 })
+
+// Return key to submit and return movie title 
+$("form").on("submit", function(event) {
+  event.preventDefault();
+  $("#submitBtnTitle").click();
+});
+
+  $("form").on("submit", function(event) {
+    event.preventDefault();
+    $("#submitBtnGenre").click();
+});
