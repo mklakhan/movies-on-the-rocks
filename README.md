@@ -1,7 +1,7 @@
 # Movies on the Rocks
 A web application that shakes up your movie night by recommending beverages based on the flicks you're watching, so you feel part of all the action!
 
-The webpage is hosted on [GitHub](https://www.xxxxxxx.com)
+The webpage is hosted on [GitHub](https://mklakhan.github.io/movies-on-the-rocks/)
 
 You can find the repo on [GitHub](https://github.com/mklakhan/movies-on-the-rocks)
 
@@ -16,7 +16,7 @@ In this application we utilized the Open Movie Database (OMDb) API to implement 
  
 
 ## Screenshots
-![alternativetext](assets/legalmodal.png
+![alternativetext](assets/legalmodal.png)
 
 
 ## Technologies & Credits
