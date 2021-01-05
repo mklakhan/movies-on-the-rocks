@@ -13,12 +13,11 @@
 </head>
 
 <body>
-
     <!-- Start Age Modal -->
     <a style="display: none;" id="openAgeModal" data-open="ageModal"></a>
 
-    <div class="reveal full removeHeight" id="ageModal" data-reveal data-close-on-click="false" data-close-on-esc="false"
-        data-animation-in="fade-in" data-animation-out="fade-out">
+    <div class="reveal full removeHeight" id="ageModal" data-reveal data-close-on-click="false"
+        data-close-on-esc="false" data-animation-in="fade-in" data-animation-out="fade-out">
         <div id="innerModal">
             <div id="modalText">
                 <p>Are you of legal drinking age?</p>
@@ -32,7 +31,6 @@
     <!-- End Age Modal -->
 
     <div class="container">
-
         <!-- Start Nav Bar -->
         <div class="top-bar">
             <div class="top-bar-left">
@@ -50,8 +48,8 @@
         </div>
         <!-- End Nav Bar -->
 
+        <!-- movie/genre buttons and Inputs -->
         <h2 class="heading">To get started, please select how you would like to search</h2>
-
         <div class="title-Btn">
             <button id="titleBtn" type="button" class="primary button button large btnStyle">MOVIE TITLE</button>
         </div>
@@ -60,7 +58,6 @@
         </div>
 
         <div class="grid-container">
-
             <div id="titleForm" class="medium-6 cell hide titleForm">
                 <form onSubmit="return false">
                     <p class="form-heading">Drinks Based on Movie Title</p>
@@ -96,7 +93,7 @@
             </div>
         </div>
 
-
+        <!-- submit/go back buttons -->
         <div class="submit-Btn">
             <button id="submitBtnTitle" type="button" class="success button button large btnStyle hide">Submit</button>
 
@@ -105,6 +102,7 @@
             <button id="reset" type="button" class="warning button button large btnStyle hide">Go Back</button>
         </div>
 
+        <!-- drinks section -->
         <section id="OurPicks">
             <div class="grid-x">
                 <div id='prefResults' class="cell small-12 text-center" style="margin-top: 3rem">
@@ -116,6 +114,7 @@
                         Jeffrey "The Dude" Lebowski!</p>
                 </div>
             </div>
+
             <div class="grid-container">
                 <div class="grid-x grid-margin-x grid-margin-y grid-padding-y grid-padding-x drink-mobile-view">
                     <div id="drink-title" class="cell small-12 text-center">
@@ -141,7 +140,6 @@
         <p>&copy 2021 | Please Drink Responsibly &hearts;</p>
     </footer>
 
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
         integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
         crossorigin="anonymous"></script>
@@ -152,5 +150,4 @@
     </script>
     <script src="script.js"></script>
 </body>
-
 </html>
