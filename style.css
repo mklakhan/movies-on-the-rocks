@@ -1,9 +1,5 @@
 /* Nav Bar  */
-.top-bar-left {
-  font-family: Montserrat;
-}
-
-.top-bar-right {
+.top-bar-left, .top-bar-right {
   font-family: Montserrat;
 }
 
@@ -24,7 +20,7 @@
             /* justify-content: center; */
   }
   
-  .hero-section .hero-section-text {
+  .hero-section-text {
     color: #fefefe;
     text-shadow: 1px 1px 2px #0a0a0a;
   }
@@ -63,7 +59,6 @@
 #isLegalYes, #isLegalNo {
   width: 30%;
   height: 50px;
-
 }
 
   .intro {
@@ -72,7 +67,6 @@
     padding-right: 10px 0;
     border-top: 1px solid medium-gray;
     border-bottom: 1px solid medium-gray;
-
   }
 
   .intro-text{
@@ -89,8 +83,6 @@
     font-size: 28px;
     border-style: groove;
   }
-
-
 
   /* Home page: Movie and Cocktail of the Month Section */
 
@@ -133,55 +125,31 @@
   
   body {
     font: normal 20px Montserrat;
-    background-color: #D3D0CB;
-    
+    background-color: #D3D0CB;  
 }
 
   section {
   padding-bottom: 20px;
   background-color: #353c44;
   color: white
-  
- 
 }
 
   h2 {
   font-family: Montserrat;
   font-size: 35px;
-  
 }
 
   /* Drink Picks page */
-
   .heading{
     text-align: center;
   }
 
-  .submit-Btn{
+.title-Btn, .genre-Btn, .submit-Btn {
   margin-top: 50px;
   margin-bottom: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  
-}
-
-.title-Btn{
-  margin-top: 50px;
-  margin-bottom: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-}
-
-.genre-Btn{
-  margin-top: 50px;
-  margin-bottom: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
 }
 
 .titleForm, .genreForm{
@@ -191,6 +159,7 @@
 
 #titleBtn, #genreBtn{
   background-color: #4B7793;
+  border-radius: 5px;
 }
 
 #submitBtnTitle, #submitBtnGenre{
@@ -203,8 +172,6 @@
   background-color: #987033;
   color: white;
 }
-
-
 
   /* About Us page */
 
@@ -227,7 +194,6 @@
   .about-us .about-us-text {
     color: #fefefe;
     text-shadow: 1px 1px 2px #0a0a0a;
-
   }
 
   .article-row-section-header {
@@ -354,7 +320,6 @@ footer {
   .drink-mobile-view {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
   }
 }
