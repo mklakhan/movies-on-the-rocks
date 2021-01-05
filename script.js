@@ -220,6 +220,7 @@ function drinkData(genre) {
   // returns one drink
   $.ajax({ url: queryURLCategory(getDrinksCatagory) }).then(response => {
     resetResults()
+
     var finalDrink = response.drinks[0].strDrink
 
     $('#genreAndCategory').append(genre + ' / ' + getDrinksCatagory)
