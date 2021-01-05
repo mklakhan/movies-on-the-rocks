@@ -3,16 +3,6 @@ $(document).ready(function () {
   // gets key from localStorage
   // converts key from string to number
   const ageVerification = (+localStorage.getItem("isLegal"));
-  
-  // displays modal on page load
-  setTimeout(function () {
-    console.log("Before Modal Load")
-    console.log("Checking ageVerification", ageVerification)
-    if (!ageVerification || ageVerification < 21) {
-      console.log("Opening Modal");
-      $("#openAgeModal").click();
-    }
-  }, 100)
 
   // User defined movie title
   var userMovieRef = $('#movieTitle')
@@ -23,28 +13,15 @@ $(document).ready(function () {
   var queryURLCategory = (drink) => `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${drink}`;
   var drinkId = (id) => `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`;
 
-  // click listener to show movie title form
-  $("#titleBtn").click(function (event) {
-    event.preventDefault()
-    $('#titleForm, #reset, #submitBtnTitle').removeClass('hide')
-    $('#titleBtn, #genreBtn, .heading').addClass('hide')
-  })
-
-  // click listener to show movie genre form
-  $("#genreBtn").click(function (event) {
-    event.preventDefault()
-    $('#genreForm, #reset, #submitBtnGenre').removeClass('hide')
-    $('#titleBtn, #genreBtn, .heading').addClass('hide')
-  })
-
-  // click listener that resets values and returns back to inital state
-  $("#reset").click(function (event) {
-    event.preventDefault()
-    userMovieRef.val("")
-    $("#dropdownMenuGenre").val("")
-    $('#genreForm, #titleForm, #reset, #submitBtnGenre, #submitBtnTitle').addClass('hide')
-    $('#titleBtn, #genreBtn, .heading').removeClass('hide')
-  })
+  // displays modal on page load if user did not verify age
+  setTimeout(function () {
+    console.log("Before Modal Load")
+    console.log("Checking ageVerification", ageVerification)
+    if (!ageVerification || ageVerification < 21) {
+      console.log("Opening Modal");
+      $("#openAgeModal").click();
+    }
+  }, 100)
 
   // object comparing genre to drink category and descriptions
   var compare = {
@@ -182,47 +159,6 @@ $(document).ready(function () {
       }).catch(errorHandling)
   }
 
-  // modal for age check
-  // save information to local storage
-  // if click yes
-  $("#isLegalYes").click(function (event) {
-    event.preventDefault()
-    console.log('true will be saved')
-    localStorage.setItem("isLegal", "21")
-  });
-  // if click no
-  $("#isLegalNo").click(function (event) {
-    event.preventDefault()
-    console.log('false will be saved')
-    // redirects users who are not of age
-    localStorage.removeItem("isLegal")
-    document.location.href = 'https://www.youtube.com/watch?v=aucAFuZJuC4';
-  })
-
-  // click listener; redirects to pref page
-  $("#getStarted").click(function (event) {
-    event.preventDefault();
-    document.location.href = 'preferences.html';
-  });
-
-  // click listener on submit button
-  $("#submitBtnTitle").on('click', function (event) {
-    event.preventDefault();
-    // value of inputted movie
-    var userMovie = userMovieRef.val()
-    // Do not allow userMovie to be empty
-    if (!userMovie) return;
-    $.ajax({ url: omdbQueryURL(userMovie) }).then((response) => {
-      // throws error if movie not found
-      if (response.Error) return new Error(response);
-      // grabs genre from ajax object and converts to an array
-      const getGenreTypes = (response.Genre || "").split(", ");
-      // runs function and passes genre as argument
-      drinkData(getGenreTypes[getPosition(getGenreTypes)])
-
-    }).catch(errorHandling) // catches error throw
-  });
-
   // function that takes an argument and appends data to the preference list
   function drinkData(genre) {
     // value of inputted movie title
@@ -240,13 +176,13 @@ $(document).ready(function () {
       // returns drink information
       return $.ajax({ url: drinkId(currentDrink) }).then(response => {
         // logs current drink data
-        console.log({genre, currentDrinks,  getDrinksCategory, currentDrink, response})
+        console.log({ genre, currentDrinks, getDrinksCategory, currentDrink, response })
         // runs reset function
         resetResults()
 
         var finalDrink = response.drinks[0].strDrink
         const drinks = drinksIngredients(response.drinks[0])
-  
+
         // appends adlib for the inputted movie if available
         if (userMovie) {
           $('#adLib').append(compare[genre].libs(userMovie, finalDrink));
@@ -261,6 +197,71 @@ $(document).ready(function () {
       })
     }).catch(errorHandling) // catches errors
   }
+
+  // modal for age check
+  // save information to local storage
+  // if click yes
+  $("#isLegalYes").click(function (event) {
+    event.preventDefault()
+    console.log('true will be saved')
+    localStorage.setItem("isLegal", "21")
+  });
+
+  // if click no
+  $("#isLegalNo").click(function (event) {
+    event.preventDefault()
+    console.log('false will be saved')
+    // redirects users who are not of age
+    localStorage.removeItem("isLegal")
+    document.location.href = 'https://www.youtube.com/watch?v=aucAFuZJuC4';
+  })
+
+  // click listener; redirects to pref page
+  $("#getStarted").click(function (event) {
+    event.preventDefault();
+    document.location.href = 'preferences.html';
+  });
+
+  // click listener to show movie title form
+  $("#titleBtn").click(function (event) {
+    event.preventDefault()
+    $('#titleForm, #reset, #submitBtnTitle').removeClass('hide')
+    $('#titleBtn, #genreBtn, .heading').addClass('hide')
+  })
+
+  // click listener to show movie genre form
+  $("#genreBtn").click(function (event) {
+    event.preventDefault()
+    $('#genreForm, #reset, #submitBtnGenre').removeClass('hide')
+    $('#titleBtn, #genreBtn, .heading').addClass('hide')
+  })
+
+  // click listener that resets values and returns back to inital state
+  $("#reset").click(function (event) {
+    event.preventDefault()
+    userMovieRef.val("")
+    $("#dropdownMenuGenre").val("")
+    $('#genreForm, #titleForm, #reset, #submitBtnGenre, #submitBtnTitle').addClass('hide')
+    $('#titleBtn, #genreBtn, .heading').removeClass('hide')
+  })
+  
+  // click listener on submit button
+  $("#submitBtnTitle").on('click', function (event) {
+    event.preventDefault();
+    // value of inputted movie
+    var userMovie = userMovieRef.val()
+    // Do not allow userMovie to be empty
+    if (!userMovie) return;
+    $.ajax({ url: omdbQueryURL(userMovie) }).then((response) => {
+      // throws error if movie not found
+      if (response.Error) return new Error(response);
+      // grabs genre from ajax object and converts to an array
+      const getGenreTypes = (response.Genre || "").split(", ");
+      // runs function and passes genre as argument
+      drinkData(getGenreTypes[getPosition(getGenreTypes)])
+
+    }).catch(errorHandling) // catches error throw
+  });
 
   // click listener for genre button
   $("#submitBtnGenre").on('click', function (event) {
