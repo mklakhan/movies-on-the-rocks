@@ -247,6 +247,13 @@ $(document).ready(function () {
   function drinkData(genre) {
     // value of inputted movie title
     var userMovie = userMovieRef.val();
+    // capitalizing movie title names with a space 
+    var spaceIdx = userMovie.search(' ')
+    if (spaceIdx > 0) {
+      userMovie = userMovie.charAt(0).toUpperCase() + userMovie.slice(1, spaceIdx) + ' ' + userMovie.charAt(spaceIdx+1).toUpperCase() + userMovie.slice(spaceIdx + 2)
+    } else {
+      userMovie = userMovie.charAt(0).toUpperCase() + userMovie.slice(1)
+    }
     // trim the result
     const currentDrinks = compare[genre.trim()].drink;
 
@@ -291,3 +298,16 @@ $(document).ready(function () {
     drinkData(genre)
   });
 })
+// Return key to submit and return movie title 
+$("form").on("submit", function(event) {
+  event.preventDefault();
+  $("#submitBtnTitle").click();
+
+});
+
+  $("form").on("submit", function(event) {
+    event.preventDefault();
+    $("#submitBtnGenre").click();
+
+  
+});
