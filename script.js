@@ -25,7 +25,7 @@ var drinkPreference
 var isLegal = 'false'
 // URL variables
 var omdbAPIKey = 'Trilogy'
-var omdbQueryURL = (movie) => `http://www.omdbapi.com/?apikey=${omdbAPIKey}&t=${movie}`;
+var omdbQueryURL = (movie) => `https://www.omdbapi.com/?apikey=${omdbAPIKey}&t=${movie}`;
 var queryURLCategory = (drink) => `https://www.thecocktaildb.com/api/json/v1/1/random.php/filter.php?c=${drink}`;
 var queryURL = () => `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=552`;
 // var queryURLCategory = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c='
