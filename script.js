@@ -24,7 +24,8 @@ $(document).ready(function () {
   var drinkId = (id) => `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`;
 
   // click listener to show movie title form
-  $("#titleBtn").click(function () {
+  $("#titleBtn").click(function (event) {
+    event.preventDefault()
     $('#titleForm').removeClass('hide')
     $('#titleBtn').addClass('hide')
     $('#genreBtn').addClass('hide')
@@ -36,7 +37,8 @@ $(document).ready(function () {
   })
 
   // click listener to show movie genre form
-  $("#genreBtn").click(function () {
+  $("#genreBtn").click(function (event) {
+    event.preventDefault()
     $('#genreForm').removeClass('hide')
     $('#titleBtn').addClass('hide')
     $('#genreBtn').addClass('hide')
@@ -48,7 +50,8 @@ $(document).ready(function () {
   })
 
   // click listener that resets values and returns back to inital state
-  $("#reset").click(function () {
+  $("#reset").click(function (event) {
+    event.preventDefault()
     userMovieRef.val("")
     $("#dropdownMenuGenre").val("")
     $('#genreForm').addClass('hide')
