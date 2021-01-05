@@ -3,6 +3,11 @@
   font-family: Montserrat;
 }
 
+.menu a {
+  font-weight: bold;
+  color: black;
+}
+
 /* Home page: Hero & Intro */
 .hero-section {
     background: url(assets/MoviesontheRocks.jpg) 78%;
