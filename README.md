@@ -21,7 +21,7 @@ In this application we utilized the Open Movie Database (OMDb) API to implement 
 ![alternativetext](assets/Homepage.png)
 ##
 ![alternativetext](assets/moviesearch.png)
-##
+
 
 
 ## Technologies & Credits
