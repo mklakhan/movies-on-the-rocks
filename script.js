@@ -26,27 +26,15 @@ $(document).ready(function () {
   // click listener to show movie title form
   $("#titleBtn").click(function (event) {
     event.preventDefault()
-    $('#titleForm').removeClass('hide')
-    $('#titleBtn').addClass('hide')
-    $('#genreBtn').addClass('hide')
-    $('#reset').removeClass('hide')
-    $('#submitBtnTitle').removeClass('hide')
-    $('.heading').addClass('hide')
-    $('.title-Btn').addClass('hide')
-    $('.genre-Btn').addClass('hide')
+    $('#titleForm, #reset, #submitBtnTitle').removeClass('hide')
+    $('#titleBtn, #genreBtn, .heading').addClass('hide')
   })
 
   // click listener to show movie genre form
   $("#genreBtn").click(function (event) {
     event.preventDefault()
-    $('#genreForm').removeClass('hide')
-    $('#titleBtn').addClass('hide')
-    $('#genreBtn').addClass('hide')
-    $('#reset').removeClass('hide')
-    $('#submitBtnGenre').removeClass('hide')
-    $('.heading').addClass('hide')
-    $('.title-Btn').addClass('hide')
-    $('.genre-Btn').addClass('hide')
+    $('#genreForm, #reset, #submitBtnGenre').removeClass('hide')
+    $('#titleBtn, #genreBtn, .heading').addClass('hide')
   })
 
   // click listener that resets values and returns back to inital state
@@ -54,16 +42,8 @@ $(document).ready(function () {
     event.preventDefault()
     userMovieRef.val("")
     $("#dropdownMenuGenre").val("")
-    $('#genreForm').addClass('hide')
-    $('#titleForm').addClass('hide')
-    $('#titleBtn').removeClass('hide')
-    $('#genreBtn').removeClass('hide')
-    $('#reset').addClass('hide')
-    $('#submitBtnGenre').addClass('hide')
-    $('#submitBtnTitle').addClass('hide')
-    $('.heading').removeClass('hide')
-    $('.title-Btn').removeClass('hide')
-    $('.genre-Btn').removeClass('hide')
+    $('#genreForm, #titleForm, #reset, #submitBtnGenre, #submitBtnTitle').addClass('hide')
+    $('#titleBtn, #genreBtn, .heading').removeClass('hide')
   })
 
   // object comparing genre to drink category and descriptions
