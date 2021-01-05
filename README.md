@@ -16,6 +16,7 @@ In this application we utilized the Open Movie Database (OMDb) API to implement 
  
 
 ## Screenshots
+![alternativetext](assets/legalmodal.png
 
 
 ## Technologies & Credits
@@ -23,6 +24,11 @@ In this application we utilized the Open Movie Database (OMDb) API to implement 
 - Google Fonts - https://fonts.google.com/
 - CocktailDB API - https://www.thecocktaildb.com/api.php
 - OMDb API - http://www.omdbapi.com/ 
+- HTML
+- CSS
+- JavaScript
+- JQuery
+- Ajax
 
 ## Contributors
 - Ryan Conat
