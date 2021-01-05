@@ -198,7 +198,7 @@ $(document).ready(function () {
 
         // appends data for the current drink to the drink section on preferences page
         $('#genreAndCategory').append(finalDrink)
-        $('#drink-title').append(`<h4 class="">Type: ${getDrinksCategory}</h4>`);
+        $('#drink-title').append(`<h4>Type: ${getDrinksCategory}</h4>`);
         $('#drink-image').append(`<img src="${response.drinks[0].strDrinkThumb}" alt="${finalDrink}" width="400" height="400">`);
         $('#drink-instructions').append(`<p>${response.drinks[0].strInstructions}</p>`);
         $('#drink-ingredients').append(drinks);
